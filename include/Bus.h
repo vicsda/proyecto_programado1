@@ -23,6 +23,10 @@ public:
     void setModeloBus(string);
     string getId();
     void setId(string);
+    Arreglo<Asiento *> *getAsientosAsign() const;
+    void setAsientosAsign(Arreglo<Asiento *> *asientosAsign);
+    bool isLleno();
+    bool agregaAsientos();
     string toString();
 };
 

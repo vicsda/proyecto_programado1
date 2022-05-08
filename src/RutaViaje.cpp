@@ -23,9 +23,10 @@ void RutaViaje::setNombreRuta(const string &nombreRuta) {
 
 
 std::string RutaViaje::toString() {
-    std::stringstream s;
+    stringstream s;
     s<<"Ruta INFO: "<<endl;
-    s<<"Nombre de la Ruta: "<<getNombreRuta()<<std::endl;
+    s<<"Nombre de la Ruta: "<<getNombreRuta()<<endl;
+    s<<"Codigo de la Ruta: "<<getId()<<endl;
     s<<"---Buses para ruta---"<<std::endl;
     s<< getBusAsignados()->toString();
     return s.str();
@@ -47,6 +48,20 @@ void RutaViaje::setBusAsignados(Lista<Bus *> *busAsignados) {
     RutaViaje::busAsignados = busAsignados;
 }
 
+
+Bus *RutaViaje::getPrimerBus() {
+    int cont = 0;
+    while(cont < busAsignados->getCantDeElementos()){
+        Bus *busEnPos = busAsignados->getElementoEnPosEspec(cont);
+        if(busEnPos == nullptr){
+            return nullptr;
+        }else if (!busEnPos->isLleno()){
+            return busEnPos;
+        }
+        cont ++;
+    }
+    return nullptr;
+}
 bool RutaViaje::anadirBusEnRuta(Bus *nuevoBus) {
     return busAsignados->agregarElemento(nuevoBus);
 }

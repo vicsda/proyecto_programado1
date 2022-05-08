@@ -43,7 +43,7 @@ void Tiquete::setRuta(RutaViaje* rut){
 
 string Tiquete::toString(){
     stringstream ss;
-    ss<<"Ruta INFO: "<<endl;
+    ss<<"* Tiquete info: "<<endl;
     ss<<"Num tiquete: "<<numeroTiquete<<endl;
     ss<<"Cedula comprador: "<<cedulaComprador<<endl;
     ss<<"Bus Asignado: "<<busAsignado->toString()<<endl;

@@ -25,7 +25,7 @@ public:
     void setNombreRuta(const string &nombreRuta);
     Lista<Bus *> *getBusAsignados() const;
     void setBusAsignados(Lista<Bus *> *busAsignados);
-
+    Bus *getPrimerBus();
     bool anadirBusEnRuta(Bus* nuevoBus);
 
     //Metodos

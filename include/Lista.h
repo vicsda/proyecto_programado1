@@ -126,6 +126,18 @@ public:
         }
         return x.str();
     }
+
+    T getElementoEnPosEspec(int pos) {
+        Nodo<T>* temp = cabeza;
+        int cont = 0;
+        while(temp != nullptr){
+            if (cont == pos)
+                return temp->getDatos();
+            cont++;
+            temp = temp->getSig();
+        }
+    }
+
 };
 
 #endif //PROYECTO_1_EIF204_LISTA_H

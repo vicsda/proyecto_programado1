@@ -32,3 +32,21 @@ string Bus::getId(){
 void Bus::setId(string num){
     numeroPlaca=num;
 }
+Arreglo<Asiento *> *Bus::getAsientosAsign() const {
+    return asientosAsign;
+}
+void Bus::setAsientosAsign(Arreglo<Asiento *> *asientosAsign) {
+    Bus::asientosAsign = asientosAsign;
+}
+
+bool Bus::isLleno() {
+    if (asientosAsign->getCantDeElementos() < asientosAsign->getTam()){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+bool Bus::agregaAsientos() {
+    return asientosAsign->modifica();
+}
