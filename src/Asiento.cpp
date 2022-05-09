@@ -9,15 +9,12 @@ Asiento::Asiento(int numAsiento, bool disponibilidad) : numAsiento(numAsiento), 
 int Asiento::getNumAsiento() const {
     return numAsiento;
 }
-
 void Asiento::setNumAsiento(int numAsiento) {
     Asiento::numAsiento = numAsiento;
 }
-
 bool Asiento::isDisponibilidad() const {
     return disponibilidad;
 }
-
 void Asiento::setDisponibilidad(bool disponibilidad) {
     Asiento::disponibilidad = disponibilidad;
 }

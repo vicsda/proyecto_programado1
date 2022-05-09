@@ -5,53 +5,80 @@
 #include "ControladorBus.h"
 
 ControladorBus::ControladorBus() {
-    dbBuses = new Lista<Bus*>(true);
+    dbBus = new Lista<Bus*>(true);
 }
-ControladorBus::ControladorBus(Lista<Bus*>* dbBuses) : dbBuses(dbBuses) {}
-ControladorBus::~ControladorBus() {
-    delete dbBuses;
-}
+ControladorBus::ControladorBus(Lista<Bus*>* dbBus)
+        : dbBus(dbBus) {}
+ControladorBus::~ControladorBus() {}
 
-void ControladorBus::control0() {
+void ControladorBus::menuBus() {
     int op = 0;
-    while(VistaBus::menuBuses(op) != 4) {
+    while(VistaBus::menuDeBuses(op) != 3) {
         switch(op) {
             case 1:
-                control1();
+                insertarBus();
                 break;
             case 2:
-                control2();
-                break;
-            case 3:
-                control3();
-                break;
-            case 4:
+                eliminarBus();
                 break;
             default:
-                cout << "Invalido";
+                "INVALIDO"; // DE ESTO SE DEBE DE ENCARGAR EL MANEJO DE EXCEPCIONES Y/O VISTA
+                break;
         }
     }
 }
-void ControladorBus::control1() {
-    string numPlaca;
+void ControladorBus::insertarBus() {   // BUSCAR FORMA DE HACER QUE NO PERMITA INGRESAR "MODELOS INVALIDOS"
+    string idNumPlaca;
     string modelo;
-    VistaBus::capturarDatosParaAgregarBus(numPlaca, modelo);
-    Bus* nuevoBus = new Bus(numPlaca, modelo);
-    if ( dbBuses->agregarElemento(nuevoBus) ) {
+    VistaBus::capturarDatosParaAgregarBus(idNumPlaca, modelo);
+    Bus* nuevoBus = new Bus(idNumPlaca, modelo);
+    if( dbBus->agregarElemento(nuevoBus) and DatosBus::isModeloValido(modelo) ) {
         VistaBus::mensajeBusAgregadoExitosamente();
     }
     else {
         delete nuevoBus;
+        VistaBus::mensajeDeError();
     }
 }
-void ControladorBus::control2() {
-    string numPlaca;
-    VistaBus::capturarDatosParaBorrarBus(numPlaca);
-    if ( dbBuses->eliminarElementoSegunId(numPlaca) ) {
+void ControladorBus::eliminarBus() {
+    string idNumPlaca;
+    VistaBus::capturarDatosParaBorrarBus(idNumPlaca);
+
+    //checkar que el bus realmente existe en la base de datos de buses
+    if(dbBus->checkarSiElementoExisteSegunId(idNumPlaca)) {
+
+        //eliminar objeto de la base de datos de buses
+        dbBus->eliminarElementoSegunId(idNumPlaca);
+
         VistaBus::mensajeBusEliminadoExitosamente();
+    } else {
+        VistaBus::mensajeDeError();
     }
 }
-void ControladorBus::control3() {
-    string data = dbBuses->toString();
-    VistaBus::escribirDatosDeBuses(data);
+bool ControladorBus::cambiarCapacidadSegunRestriccion() {
+    int restriccionDeseada;
+    char op;
+
+    //le pido los datos deseados al usuario. le aviso que esto eliminara la nomina actual
+    VistaBus::capturarDatoDeRestriccion(restriccionDeseada);
+    VistaBus::mensajeDeAdvertenciaAnteCambio(op);
+
+    //si el usuario accedio, entonces proceder
+    if(op == 'S') {
+
+        //reseteo de los asientos (con nuevo valor de tamano)
+        for(int i = 0; i < dbBus->getCantDeElementos(); i++) {
+            Bus* busPos = dbBus->getElementoEnPosEspec(i);
+            busPos->resetearAsientosSegunRestriccion(restriccionDeseada);
+        }
+
+        VistaBus::mensajeDeCambioSatisfactorio();
+        return true;
+    }
+
+    return false;
+}
+void ControladorBus::mostrarBuses() {
+    string data = dbBus->toString();
+    VistaBus::escribirBusesEnPantalla(data);
 }

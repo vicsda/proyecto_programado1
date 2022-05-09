@@ -6,15 +6,23 @@
 #define PROYECTO_1_EIF204_VISTABUS_H
 
 #include "../include/Utilidades.h"
+#include <cstdlib>
+#include <conio.h>
 
 class VistaBus {
 public:
-    static int menuBuses(int &op);
+    static int menuDeBuses(int &op);
     static void capturarDatosParaAgregarBus(string &placaBus, string &modelo);
     static void mensajeBusAgregadoExitosamente();
     static void capturarDatosParaBorrarBus(string &placaBus);
     static void mensajeBusEliminadoExitosamente();
-    static void escribirDatosDeBuses(string &data);
+    static void mensajeDeError();
+    static void escribirBusesEnPantalla(string data);
+
+
+    static void capturarDatoDeRestriccion(int &op);
+    static void mensajeDeAdvertenciaAnteCambio(char &op);
+    static void mensajeDeCambioSatisfactorio();
 };
 
 

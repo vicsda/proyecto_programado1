@@ -7,33 +7,27 @@
 ControladorRuta::ControladorRuta() {
     dbRuta = new Lista<RutaViaje*>(true);
 }
-ControladorRuta::ControladorRuta(Lista<RutaViaje*>* dbRuta) : dbRuta(dbRuta) {}
-ControladorRuta::~ControladorRuta() {
-    delete dbRuta;
-}
+ControladorRuta::ControladorRuta(Lista<RutaViaje*>* dbRuta)
+        : dbRuta(dbRuta) {}
+ControladorRuta::~ControladorRuta() {}
 
-void ControladorRuta::control0(Lista<Bus*>* dbBus) {
+void ControladorRuta::menuRuta(Lista<Bus*>* dbBus) {
     int op = 0;
-    while(VistaRuta::menuDeRutas(op) != 4) {
+    while(VistaRuta::menuDeRutas(op) != 3) {
         switch(op) {
             case 1:
-                control1(dbBus);
+                insertarRuta(dbBus);
                 break;
             case 2:
-                control2();
-                break;
-            case 3:
-                control3();
-                break;
-            case 4:
+                eliminarRuta();
                 break;
             default:
-                "INVALIDO";
+                cout << "INVALIDO";
                 break;
         }
     }
 }
-void ControladorRuta::control1(Lista<Bus*>* dbBus) {
+void ControladorRuta::insertarRuta(Lista<Bus*>* dbBus) {
     string idCodRuta;
     string nomRuta;
     string idNumPlaca;
@@ -51,6 +45,7 @@ void ControladorRuta::control1(Lista<Bus*>* dbBus) {
             Bus* ptoBus = dbBus->devolverElementoSegunId(idNumPlaca);
             if( !dbBus->checkarSiElementoExisteSegunId(idNumPlaca) || !nuevaRuta->anadirBusEnRuta(ptoBus) ) {
                 delete nuevaRuta;
+                VistaRuta::mensajeDeError();
                 return;
             }
 
@@ -59,15 +54,19 @@ void ControladorRuta::control1(Lista<Bus*>* dbBus) {
 
         dbRuta->agregarElemento(nuevaRuta);
         VistaRuta::mensajeRutaAgregadaExitosamente();
+    } else {
+        VistaRuta::mensajeDeError();
     }
 }
-void ControladorRuta::control2() {
+void ControladorRuta::eliminarRuta() {
     string idCodRuta;
     VistaRuta::capturarDatosParaEliminarRuta(idCodRuta);
     if( dbRuta->eliminarElementoSegunId(idCodRuta) ) {
         VistaRuta::mensajeRutaEliminadaExitosamente();
+    } else {
+        VistaRuta::mensajeDeError();
     }
 }
-void ControladorRuta::control3() {
-    VistaRuta::escribirDatosDeRutas(dbRuta->toString());
+void ControladorRuta::mostrarRutas() {
+    VistaRuta::escribirDisponibilidadDePasajerosPorRuta(dbRuta->toString());
 }

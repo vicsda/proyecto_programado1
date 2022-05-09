@@ -17,10 +17,10 @@ public:
     ControladorRuta(Lista<RutaViaje*>* dbRuta);
     ~ControladorRuta();
 
-    void control0(Lista<Bus*>* dbBus);
-    void control1(Lista<Bus*>* dbBus);
-    void control2();
-    void control3();
+    void menuRuta(Lista<Bus*>* dbBus);
+    void insertarRuta(Lista<Bus*>* dbBus);
+    void eliminarRuta();
+    void mostrarRutas();
 };
 
 #endif //PROYECTO_1_EIF204_CONTROLADORRUTA_H

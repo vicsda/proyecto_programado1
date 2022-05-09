@@ -11,16 +11,17 @@
 
 class ControladorBus {
 private:
-    Lista<Bus*>* dbBuses;
+    Lista<Bus*>* dbBus;
 public:
     ControladorBus();
-    ControladorBus(Lista<Bus*>*);
+    ControladorBus(Lista<Bus*>* dbBus);
     ~ControladorBus();
 
-    void control0();
-    void control1();
-    void control2();
-    void control3();
+    void menuBus();
+    void insertarBus();
+    void eliminarBus();
+    bool cambiarCapacidadSegunRestriccion();
+    void mostrarBuses();
 };
 
 

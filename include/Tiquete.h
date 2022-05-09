@@ -12,20 +12,25 @@
 class Tiquete : public Object {
 
 private:
-    string numeroTiquete;
+    static int id_actual;
+
+    string idTiquete;
+    int numAsiento;
     string cedulaComprador;
     Bus* busAsignado;
     RutaViaje* rutaAsignado;
 public:
-    Tiquete(string=" ",string=" ",Bus* = NULL,RutaViaje* = NULL);
+    Tiquete(int = 0, string=" ",Bus* = nullptr,RutaViaje* = nullptr);
     ~Tiquete();
 
     string getId();
+    int getNumAsiento() const;
     string getCedulaComprador();
     Bus* getBus();
     RutaViaje* getViaje();
 
     void setId(string);
+    void setNumAsiento(int numAsiento);
     void setCedulaComprador(string);
     void setBus(Bus*);
     void setRuta(RutaViaje*);

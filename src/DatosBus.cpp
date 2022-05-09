@@ -3,7 +3,7 @@
 //
 
 #include "../include/DatosBus.h"
-int DatosBus::espacioTotal(string esp){
+int DatosBus::getCapacidadMaxima(string esp) {
     if(esp == "Buseta") {
         return 40;
     }
@@ -19,4 +19,17 @@ int DatosBus::espacioTotal(string esp){
     else {
         return 0;
     }
+}
+
+bool DatosBus::isModeloValido(string inModelo) {
+    if(inModelo == "Buseta" || inModelo == "Coaster" || inModelo == "Hiace" || inModelo == "H1") {
+        return true;
+    }
+
+    return false;
+}
+
+int DatosBus::realizarCalculoAforo(int porc, string modelo) {
+    int tamMax = DatosBus::getCapacidadMaxima(modelo);
+    return porc * tamMax / 100;
 }

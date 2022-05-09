@@ -4,19 +4,20 @@
 
 #include"../include/Tiquete.h"
 
+int Tiquete::id_actual = 1000;
 
-Tiquete::Tiquete(string numT,string cedC,Bus* b,RutaViaje* rut){
-    numeroTiquete=numT;
-    cedulaComprador=cedC;
-    busAsignado=b;
-    rutaAsignado=rut;
-}
-Tiquete::~Tiquete(){
+Tiquete::Tiquete(int numAsiento, string cedulaComprador,Bus* busAsignado,RutaViaje* rutaAsignado)
+    : idTiquete(to_string(id_actual++)), numAsiento(numAsiento), cedulaComprador(cedulaComprador), busAsignado(busAsignado),
+      rutaAsignado(rutaAsignado) {}
 
-}
+Tiquete::~Tiquete() {}
+
 
 string Tiquete::getId(){
-    return numeroTiquete;
+    return idTiquete;
+}
+int Tiquete::getNumAsiento() const {
+    return numAsiento;
 }
 string Tiquete::getCedulaComprador(){
     return cedulaComprador;
@@ -29,7 +30,10 @@ RutaViaje* Tiquete::getViaje(){
 }
 
 void Tiquete::setId(string num){
-    numeroTiquete=num;
+    idTiquete=num;
+}
+void Tiquete::setNumAsiento(int numAsiento) {
+    Tiquete::numAsiento = numAsiento;
 }
 void Tiquete::setCedulaComprador(string ced){
     cedulaComprador=ced;
@@ -42,11 +46,11 @@ void Tiquete::setRuta(RutaViaje* rut){
 }
 
 string Tiquete::toString(){
-    stringstream ss;
-    ss<<"* Tiquete info: "<<endl;
-    ss<<"Num tiquete: "<<numeroTiquete<<endl;
-    ss<<"Cedula comprador: "<<cedulaComprador<<endl;
-    ss<<"Bus Asignado: "<<busAsignado->toString()<<endl;
-    ss<<"Ruta Asignado: "<<rutaAsignado->toString();
-    return ss.str();
+    stringstream x;
+    x << "* ID de Tiquete: " << idTiquete << '\n'
+    << "* Numero de Asiento: " << numAsiento << '\n'
+    << "* Cedula de Comprador: " << cedulaComprador << '\n'
+    << "* Placa de Bus Asignado: " << busAsignado->getId() << '\n'
+    << "* Codigo de Ruta Asignado: " << rutaAsignado->getId();
+    return x.str();
 }

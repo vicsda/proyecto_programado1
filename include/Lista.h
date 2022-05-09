@@ -51,6 +51,20 @@ public:
         return nullptr;
     }
 
+    T getElementoEnPosEspec(int pos) {
+        Nodo<T>* temp = cabeza;
+
+        int cont = 0;
+        while (temp != nullptr) {
+            if (cont == pos)
+                return temp->getDatos();
+            cont++;
+            temp = temp->getSig();
+        }
+
+        return nullptr;
+    }
+
     bool agregarElemento(T nuevoElemento) {
         if(!checkarSiElementoExisteSegunId(nuevoElemento->getId()) and (nuevoElemento != nullptr)) {
             Nodo<T>* nuevoNodo = new Nodo<T>(nuevoElemento, nullptr, composicion);
@@ -114,6 +128,55 @@ public:
         return false;
     }
 
+    bool eliminarUltimoElemento() {
+        Nodo<T>* temp = cabeza;
+
+        if(temp == nullptr) {
+            return false;
+        }
+        else if(temp->getSig() == nullptr) {
+            delete temp;
+            cant--;
+            return true;
+        }
+
+
+        while(temp->getSig()->getSig() != nullptr) {
+            temp = temp->getSig();
+        }
+
+        Nodo<T>* nodoPorDeletear = temp->getSig();
+        delete nodoPorDeletear;
+        nodoPorDeletear = nullptr;
+        temp->setSig(nullptr);
+        cant--;
+        return true;
+    }
+
+    bool resetearLista() {
+        Nodo<T>* temp = cabeza;
+
+        if(cabeza == nullptr) { return true; }
+        else if(cabeza->getSig() == nullptr) {
+            delete cabeza;
+            cabeza = nullptr;
+            cant = 0;
+            return true;
+        }
+        else {
+            while(temp->getSig() != nullptr) {
+                Nodo<T>* deleteNod = temp;
+                temp = temp->getSig();
+                delete deleteNod;
+            }
+
+            delete temp;
+            cabeza = nullptr;
+            cant = 0;
+            return true;
+        }
+    }
+
     string toString() {
         stringstream x;
         Nodo<T>* temp = cabeza;
@@ -126,18 +189,6 @@ public:
         }
         return x.str();
     }
-
-    T getElementoEnPosEspec(int pos) {
-        Nodo<T>* temp = cabeza;
-        int cont = 0;
-        while(temp != nullptr){
-            if (cont == pos)
-                return temp->getDatos();
-            cont++;
-            temp = temp->getSig();
-        }
-    }
-
 };
 
 #endif //PROYECTO_1_EIF204_LISTA_H

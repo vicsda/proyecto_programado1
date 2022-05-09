@@ -5,28 +5,33 @@
 #ifndef PROYECTO_1_EIF204_BUS_H
 #define PROYECTO_1_EIF204_BUS_H
 
-#include "Object.h"
-#include "Utilidades.h"
-#include "Arreglo.h"
 #include "Asiento.h"
+#include "Arreglo.h"
 #include "DatosBus.h"
 
-class Bus : public Object{
+class Bus : public Object {
 private:
-    string numeroPlaca;
-    string modeloBus;
+    string idNumPlaca;
+    string modelo;
     Arreglo<Asiento*>* asientosAsign;
 public:
-    Bus(string=" ",string=" ");
-    ~Bus();
-    string getModeloBus();
-    void setModeloBus(string);
-    string getId();
-    void setId(string);
-    Arreglo<Asiento *> *getAsientosAsign() const;
-    void setAsientosAsign(Arreglo<Asiento *> *asientosAsign);
+    Bus();
+    Bus(const string &idNumPlaca, const string &modelo);
+    Bus(const string &idNumPlaca, const string &modelo, Arreglo<Asiento *> *asientosAsign);
+    virtual ~Bus();
+
+    const string &getId() const;
+    void setId(const string &idNumPlaca);
+    const string &getModelo() const;
+    void setModelo(const string &modelo);
+
+    int getCapacidadMaxima();
+    int getCantDeAsientos();
+    bool agregarAsiento(Asiento* inAsiento);
+    bool eliminarUltimoAsiento();
+    bool resetearAsientosSegunRestriccion(int porc);
     bool isLleno();
-    bool agregaAsientos();
+
     string toString();
 };
 

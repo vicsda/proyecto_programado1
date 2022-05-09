@@ -12,23 +12,24 @@
 
 class RutaViaje : public Object {
 private:
-    string codRuta;
-    string nombreRuta;
-    Lista<Bus*>* busAsignados;
+    string idCodRuta;
+    string nomRuta;
+    Lista<Bus*>* busesAsign;
 public:
-    RutaViaje(const string &codRuta, const string &nombreRuta);
+    RutaViaje();
+    RutaViaje(string idCodRuta, string nomRuta);
+    RutaViaje(string idCodRuta, string nomRuta, Lista<Bus*>* busesAsign);
     ~RutaViaje();
 
     const string &getId() const;
-    void setId(const string &codRuta);
-    const string &getNombreRuta() const;
-    void setNombreRuta(const string &nombreRuta);
-    Lista<Bus *> *getBusAsignados() const;
-    void setBusAsignados(Lista<Bus *> *busAsignados);
-    Bus *getPrimerBus();
-    bool anadirBusEnRuta(Bus* nuevoBus);
+    void setId(const string &idCodRuta);
+    const string &getNomRuta() const;
+    void setNomRuta(const string &nomRuta);
 
-    //Metodos
+    bool anadirBusEnRuta(Bus* bus);
+    Bus* getPrimerBusDisponible();
+    bool eliminarBusSegunPlaca(string placa);
+
     string toString();
 };
 

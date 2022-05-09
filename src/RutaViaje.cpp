@@ -4,64 +4,61 @@
 
 #include "../include/RutaViaje.h"
 
-RutaViaje::RutaViaje(const string &codRuta, const string &nombreRuta)
-    : codRuta(codRuta), nombreRuta(nombreRuta) {
-    busAsignados = new Lista<Bus*>(false);
+RutaViaje::RutaViaje() : idCodRuta("X"), nomRuta("X") {
+    busesAsign = new Lista<Bus*>(false);
 }
+RutaViaje::RutaViaje(string idCodRuta, string nomRuta) : idCodRuta(idCodRuta), nomRuta(nomRuta) {
+    busesAsign = new Lista<Bus*>(false);
+}
+RutaViaje::RutaViaje(string idCodRuta, string nomRuta, Lista<Bus*>* busesAsign)
+        : idCodRuta(idCodRuta), nomRuta(nomRuta), busesAsign(busesAsign) {}
 
 RutaViaje::~RutaViaje() {
-
-}
-
-const string &RutaViaje::getNombreRuta() const {
-    return nombreRuta;
-}
-
-void RutaViaje::setNombreRuta(const string &nombreRuta) {
-    RutaViaje::nombreRuta = nombreRuta;
-}
-
-
-std::string RutaViaje::toString() {
-    stringstream s;
-    s<<"Ruta INFO: "<<endl;
-    s<<"Nombre de la Ruta: "<<getNombreRuta()<<endl;
-    s<<"Codigo de la Ruta: "<<getId()<<endl;
-    s<<"---Buses para ruta---"<<std::endl;
-    s<< getBusAsignados()->toString();
-    return s.str();
+    delete busesAsign;
 }
 
 const string &RutaViaje::getId() const {
-    return codRuta;
+    return idCodRuta;
+}
+void RutaViaje::setId(const string &idCodRuta) {
+    RutaViaje::idCodRuta = idCodRuta;
+}
+const string &RutaViaje::getNomRuta() const {
+    return nomRuta;
+}
+void RutaViaje::setNomRuta(const string &nomRuta) {
+    RutaViaje::nomRuta = nomRuta;
 }
 
-void RutaViaje::setId(const string &codRuta) {
-    RutaViaje::codRuta = codRuta;
+bool RutaViaje::anadirBusEnRuta(Bus* bus) {
+    return busesAsign->agregarElemento(bus);
 }
 
-Lista<Bus *> *RutaViaje::getBusAsignados() const {
-    return busAsignados;
-}
-
-void RutaViaje::setBusAsignados(Lista<Bus *> *busAsignados) {
-    RutaViaje::busAsignados = busAsignados;
-}
-
-
-Bus *RutaViaje::getPrimerBus() {
+Bus* RutaViaje::getPrimerBusDisponible() {
     int cont = 0;
-    while(cont < busAsignados->getCantDeElementos()){
-        Bus *busEnPos = busAsignados->getElementoEnPosEspec(cont);
-        if(busEnPos == nullptr){
+    while(cont <= busesAsign->getCantDeElementos()) {
+        Bus* busEnPos = busesAsign->getElementoEnPosEspec(cont);
+
+        if(busEnPos == nullptr)
             return nullptr;
-        }else if (!busEnPos->isLleno()){
+        else if(!busEnPos->isLleno())
             return busEnPos;
-        }
-        cont ++;
+
+        cont++;
     }
+
     return nullptr;
 }
-bool RutaViaje::anadirBusEnRuta(Bus *nuevoBus) {
-    return busAsignados->agregarElemento(nuevoBus);
+
+bool RutaViaje::eliminarBusSegunPlaca(string placa) {
+    return busesAsign->eliminarElementoSegunId(placa);
+}
+
+string RutaViaje::toString() {
+    stringstream x;
+    x << "* Codigo de Ruta: " << idCodRuta << '\n'
+      << "* Nombre de la Ruta: " << nomRuta << '\n'
+      << "* Nro. de Buses Asignados: " << busesAsign->getCantDeElementos() << '\n'
+      << "* Disponibilidad de Pasajeros: 666%"; // IMPLEMENTAR
+    return x.str();
 }

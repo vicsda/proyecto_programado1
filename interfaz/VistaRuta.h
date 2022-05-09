@@ -6,6 +6,8 @@
 #define PROYECTO_1_EIF204_VISTARUTA_H
 
 #include "../include/Utilidades.h"
+#include <cstdlib>
+#include <conio.h>
 
 class VistaRuta {
 public:
@@ -15,7 +17,7 @@ public:
     static void mensajeRutaAgregadaExitosamente();
     static void capturarDatosParaEliminarRuta(string &idCodRuta);
     static void mensajeRutaEliminadaExitosamente();
-    static void escribirDatosDeRutas(string data);
+    static void mensajeDeError();
     static void escribirDisponibilidadDePasajerosPorRuta(string data);
 };
 

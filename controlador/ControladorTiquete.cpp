@@ -14,78 +14,70 @@ ControladorTiquete::~ControladorTiquete() {
     delete dbTiquete;
 }
 
-void ControladorTiquete::control0(Lista<RutaViaje*>* dbRuta) {
-    int op = 0;
-    while(VistaTiquete::menuTiquetes(op) != 4) {
-        switch(op) {
-            case 1:
-                control1(dbRuta);
-                break;
-            case 2:
-               control2();
-                break;
-            case 3:
-                control3();
-                break;
-            case 4:
-                break;
-            default:
-                "INVALIDO";
-                break;
-        }
-    }
-}
+void ControladorTiquete::insertarTiquete(Lista<RutaViaje *> *dbRuta) {
+    string codRuta;
+    string numCedula;
+    int cantBoletos;
 
-void ControladorTiquete::control1(Lista<RutaViaje *> *dbRuta) {
-    string cedulaComprador;
-    string codigoRuta;
-    int cantidadPasajeros;
-    string numTiquete;
+    //se piden los datos del usuario
+    VistaTiquete::capturarDatosParaAgregarTiquete(codRuta, numCedula, cantBoletos);
 
-    cout << " * RUTAS A ESCOGER \n";
-    cout << dbRuta->toString() << endl;
-    VistaTiquete::capturaDatosDelCliente(cedulaComprador, cantidadPasajeros, codigoRuta);
-    VistaTiquete::capturaNumTiquete(numTiquete);
-    if (dbRuta->checkarSiElementoExisteSegunId(codigoRuta) && !dbTiquete->checkarSiElementoExisteSegunId(numTiquete)) {
+    //algoritmo para compra de tiquetes
+    if (dbRuta->checkarSiElementoExisteSegunId(codRuta)) {
+        //inicio la insercion de los boletos, uno por uno
+        int tempCantBoletos = cantBoletos;
+        while (tempCantBoletos) {
 
-        RutaViaje *puntRuta = dbRuta->devolverElementoSegunId(codigoRuta);
-        Bus *puntBus = puntRuta->getPrimerBus();
+            //consigo los objetos necesarios para la transaccion
+            RutaViaje *rutaAsign = dbRuta->devolverElementoSegunId(codRuta);
+            Bus *busAsign = rutaAsign->getPrimerBusDisponible();
 
-        if (puntBus != nullptr) {
-            while (cantidadPasajeros) {
-                puntBus->agregaAsientos();
-                Tiquete *tiq = new Tiquete(numTiquete, cedulaComprador, puntBus, puntRuta);
-                dbTiquete->agregarElemento(tiq);
-
-                if (puntBus->isLleno()) {
-                    puntBus = puntRuta->getPrimerBus();
-
-                    if (puntBus == nullptr) {
-                        return;
-                    }
-                }
-
-                numTiquete.append("g");
-                cantidadPasajeros--;
+            //terminar proceso si busAsign es nullptr (no hay buses disponibles)
+            if (busAsign == nullptr) {
+                VistaTiquete::mensajeDeError();
+                return;
             }
 
-            VistaTiquete::mensajeReservaExitosa();
-            cout << endl;
-        } else {
-            return;
+            //saco datos de los objetos necesarios, con el fin de realizar la transaccion
+            int numAsiento = busAsign->getCantDeAsientos() + 1;
+
+            //creo el asiento y el tiquete por ser agregados al sistema
+            Asiento *nuevoAsiento = new Asiento(numAsiento, false);
+            Tiquete *nuevoTiquete = new Tiquete(numAsiento, numCedula, busAsign, rutaAsign);
+
+            //agrego los elementos respectivos
+            busAsign->agregarAsiento(nuevoAsiento);
+            dbTiquete->agregarElemento(nuevoTiquete);
+
+            //si el bus actual ya se lleno, conseguir el siguiente. si ya no hay mas disponibles, terminar proceso
+            if (busAsign->isLleno()) {
+                Bus *nuevoBusAsign = rutaAsign->getPrimerBusDisponible();
+                if (nuevoBusAsign == nullptr) {
+
+                    //algoritmo para remover y deletear tiquetes ingresados en el proceso. al finalizar, terminar el proceso
+                    while (tempCantBoletos <= cantBoletos) {
+                        busAsign->eliminarUltimoAsiento();
+                        dbTiquete->eliminarUltimoElemento();
+                        tempCantBoletos++;
+                    }
+
+                    VistaTiquete::mensajeDeError();
+                    return;
+                }
+            }
+
+            tempCantBoletos--;
         }
-    }
 
-}
-
-void ControladorTiquete::control2() {
-    string numTiquete;
-    VistaTiquete::capturarDatosParaEliminarTiquete(numTiquete);
-    if ( dbTiquete->eliminarElementoSegunId(numTiquete) ) {
-        VistaTiquete::mensajeReservaEliminadaExitosamente();
+        VistaTiquete::mensajeDeCompraRealizadaExitosamente();
+    } else {
+        VistaTiquete::mensajeDeError();
     }
 }
-void ControladorTiquete::control3() {
+void ControladorTiquete::mostrarTiquetes() {
     string data = dbTiquete->toString();
     VistaTiquete::escribirDatosDeTiquetes(data);
+}
+void ControladorTiquete::resetearTiquetes() {
+    dbTiquete->resetearLista();
 }

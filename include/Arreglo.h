@@ -38,6 +38,10 @@ public:
         return cant;
     }
 
+    int getTamVector() const {
+        return tam;
+    }
+
     bool agregarElemento(T input) {
         if(cant < tam) {
             vec[cant] = input;
@@ -49,78 +53,34 @@ public:
         }
     }
 
-    string toString() {
-        stringstream x;
-        for(int i = 0; i < cant; i++) {
-            x << vec[i]->toString();
-            if((i+1) != cant) {
-                x << "\n\n";
-            }
+    bool eliminarUltimoElemento() {
+
+        if(vec[0] == nullptr) { return false; }
+
+        if(composicion) {
+            delete vec[cant-1];
         }
-        return x.str();
+
+        vec[cant-1] = nullptr;
+        cant--;
+        return true;
     }
-};
 
+    bool resetearContenedor(int nuevoTam) {
 
-template<>
-class Arreglo<Asiento*> {
-private:
-    Asiento** vec;
-    int tam;
-    int cant;
-    bool composicion;
-public:
+        for(int i = 0; i < tam; i++) {
+            delete vec[i];
+        }
+        delete[] vec;
 
-    Arreglo(int tam, bool composicion) : tam(tam), cant(0), composicion(composicion) {
-        vec = new Asiento * [tam];
-
+        cant = 0;
+        tam = nuevoTam;
+        vec = new T[tam];
         for(int i = 0; i < tam; i++) {
             vec[i] = nullptr;
         }
-    }
-    ~Arreglo() {
-        if(composicion) {
-            for(int i = 0; i < tam; i++) {
-                delete vec[i];
-            }
-        }
 
-        delete[] vec;
-    }
-
-    int getCantDeElementos() const {
-        return cant;
-    }
-
-    void setCant(int cant) {
-        Arreglo::cant = cant;
-    }
-
-    int getTam() const {
-        return tam;
-    }
-
-    bool modifica() {
-        Asiento* nuevoAsiento = new Asiento(cant, false);
-        if(cant < tam) {
-            vec[cant] = nuevoAsiento;
-            cant++;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    bool agregarElemento(Asiento* input) {
-        if(cant < tam) {
-            vec[cant] = input;
-            cant++;
-            return true;
-        }
-        else {
-            return false;
-        }
+        return true;
     }
 
     string toString() {
@@ -134,6 +94,5 @@ public:
         return x.str();
     }
 };
-
 
 #endif //PROYECTO_1_EIF204_ARREGLO_H

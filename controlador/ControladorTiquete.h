@@ -13,13 +13,11 @@ private:
     Lista<Tiquete*>* dbTiquete;
 public:
     ControladorTiquete();
-    ControladorTiquete(Lista<Tiquete*> *dbTiquete);
-    ~ControladorTiquete();
-
-    void control0(Lista<RutaViaje*>* dbRuta);
-    void control1(Lista<RutaViaje*>* dbRuta);
-    void control2();
-    void control3();
+    ControladorTiquete(Lista<Tiquete*>* dbTiquete);
+    virtual ~ControladorTiquete();
+    void insertarTiquete(Lista<RutaViaje*>* dbRuta);
+    void mostrarTiquetes();
+    void resetearTiquetes();
 };
 
 

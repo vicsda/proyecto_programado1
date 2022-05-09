@@ -9,8 +9,9 @@
 
 class DatosBus {
 public:
-    static int espacioTotal(string);
-    // static string isModeloValido(string);
+    static int getCapacidadMaxima(string);
+    static bool isModeloValido(string inModelo);
+    static int realizarCalculoAforo(int, string);
 };
 
 #endif //PROYECTO_1_EIF204_DATOSBUS_H

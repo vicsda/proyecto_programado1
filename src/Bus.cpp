@@ -4,49 +4,56 @@
 
 #include "../include/Bus.h"
 
-Bus::Bus(string num, string mod){
-    numeroPlaca=num;
-    modeloBus=mod;
-    asientosAsign = new Arreglo<Asiento*>(DatosBus::espacioTotal(modeloBus), true);
+Bus::Bus() : idNumPlaca("X"), modelo("X") {
+    asientosAsign = new Arreglo<Asiento*>(DatosBus::getCapacidadMaxima(modelo), true);
 }
-Bus::~Bus() {}
-
-string Bus::toString(){
-    stringstream ss;
-    ss<<"Bus INFO: "<<endl;
-    ss<<" * Modelo bus: "<<modeloBus<<endl;
-    ss<<" * Numero placa: "<<numeroPlaca<<endl;
-    return ss.str();
+Bus::Bus(const string &idNumPlaca, const string &modelo) : idNumPlaca(idNumPlaca), modelo(modelo) {
+    asientosAsign = new Arreglo<Asiento*>(DatosBus::getCapacidadMaxima(modelo), true);
+}
+Bus::Bus(const string &idNumPlaca, const string &modelo, Arreglo<Asiento *> *asientosAsign)
+        : idNumPlaca(idNumPlaca), modelo(modelo), asientosAsign(asientosAsign) {}
+Bus::~Bus() {
+    delete asientosAsign;
 }
 
-string Bus::getModeloBus(){
-    return modeloBus;
+const string &Bus::getId() const {
+    return idNumPlaca;
 }
-void Bus::setModeloBus(string mod){
-    modeloBus=mod;
+void Bus::setId(const string &idNumPlaca) {
+    Bus::idNumPlaca = idNumPlaca;
 }
-
-string Bus::getId(){
-    return numeroPlaca;
+const string &Bus::getModelo() const {
+    return modelo;
 }
-void Bus::setId(string num){
-    numeroPlaca=num;
-}
-Arreglo<Asiento *> *Bus::getAsientosAsign() const {
-    return asientosAsign;
-}
-void Bus::setAsientosAsign(Arreglo<Asiento *> *asientosAsign) {
-    Bus::asientosAsign = asientosAsign;
+void Bus::setModelo(const string &modelo) {
+    Bus::modelo = modelo;
 }
 
+int Bus::getCapacidadMaxima() {
+    return DatosBus::getCapacidadMaxima(modelo);
+}
+int Bus::getCantDeAsientos() {
+    return asientosAsign->getCantDeElementos();
+}
+bool Bus::agregarAsiento(Asiento* inAsiento) {
+    return asientosAsign->agregarElemento(inAsiento);
+}
+bool Bus::eliminarUltimoAsiento() {
+    return asientosAsign->eliminarUltimoElemento();
+}
+bool Bus::resetearAsientosSegunRestriccion(int porc) {
+    int nuevoTam = DatosBus::realizarCalculoAforo(porc, modelo);
+    return asientosAsign->resetearContenedor(nuevoTam);
+}
 bool Bus::isLleno() {
-    if (asientosAsign->getCantDeElementos() < asientosAsign->getTam()){
-        return false;
-    }else{
-        return true;
-    }
+    return asientosAsign->getCantDeElementos() >= asientosAsign->getTamVector();
 }
 
-bool Bus::agregaAsientos() {
-    return asientosAsign->modifica();
+string Bus::toString() {
+    stringstream x;
+    x << "* Numero de Placa: " << idNumPlaca << '\n'
+      << "* Modelo: " << modelo << '\n'
+      << "* Asientos Maximos: " << asientosAsign->getTamVector() << '\n'
+      << "* Asientos Ocupados: " << asientosAsign->getCantDeElementos();
+    return x.str();
 }

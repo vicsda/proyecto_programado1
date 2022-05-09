@@ -5,16 +5,14 @@
 #ifndef PROYECTO_PROGRAMADO1_VISTATIQUETE_H
 #define PROYECTO_PROGRAMADO1_VISTATIQUETE_H
 #include "../include/Utilidades.h"
-
+#include <cstdlib>
+#include <conio.h>
 
 class VistaTiquete {
 public:
-    static int menuTiquetes(int &op);
-    static void capturaDatosDelCliente(string &cedulaComprador, int &cantidadPasajeros, string &codigoRuta);
-    static void mensajeReservaExitosa();
-    static void capturaNumTiquete(string &numTiquete);
-    static void capturarDatosParaEliminarTiquete(string &numTiquete);
-    static void mensajeReservaEliminadaExitosamente();
+    static void capturarDatosParaAgregarTiquete(string &codRutaAsign, string &cedulaDeComprador, int &cantidadTiquetes);
+    static void mensajeDeCompraRealizadaExitosamente();
+    static void mensajeDeError();
     static void escribirDatosDeTiquetes(string data);
 };
 
