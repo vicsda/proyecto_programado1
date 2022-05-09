@@ -1,7 +1,6 @@
 #include <iostream>
 #include "controlador/ControladorPrincipal.h"
 
-
 /*
                                         ----- COSAS POR HACER -----
 
