@@ -5,6 +5,7 @@
 #ifndef PROYECTO_PROGRAMADO1_CONTROLADORTIQUETE_H
 #define PROYECTO_PROGRAMADO1_CONTROLADORTIQUETE_H
 #include "../include/Tiquete.h"
+#include "../include/RutaViaje.h"
 #include "../include/Lista.h"
 #include "../interfaz/VistaTiquete.h"
 

@@ -11,7 +11,7 @@ ControladorRuta::ControladorRuta(Lista<RutaViaje*>* dbRuta)
         : dbRuta(dbRuta) {}
 ControladorRuta::~ControladorRuta() {}
 
-void ControladorRuta::menuRuta(Lista<Bus*>* dbBus) {
+void ControladorRuta::menuRuta(Lista<Bus*>* dbBus, Lista<Tiquete*>* dbTiquete) {
     int op = 0;
     while(VistaRuta::menuDeRutas(op) != 3) {
         switch(op) {
@@ -19,7 +19,7 @@ void ControladorRuta::menuRuta(Lista<Bus*>* dbBus) {
                 insertarRuta(dbBus);
                 break;
             case 2:
-                eliminarRuta();
+                eliminarRuta(dbTiquete);
                 break;
             default:
                 cout << "INVALIDO";
@@ -58,10 +58,14 @@ void ControladorRuta::insertarRuta(Lista<Bus*>* dbBus) {
         VistaRuta::mensajeDeError();
     }
 }
-void ControladorRuta::eliminarRuta() {
+void ControladorRuta::eliminarRuta(Lista<Tiquete*>* dbTiquete) {
     string idCodRuta;
     VistaRuta::capturarDatosParaEliminarRuta(idCodRuta);
     if( dbRuta->eliminarElementoSegunId(idCodRuta) ) {
+
+        //eliminar, si existen, las instancias en donde aparezca este cod de ruta en tiquetes
+        dbTiquete->eliminarElementosSegunCodRuta(idCodRuta);
+
         VistaRuta::mensajeRutaEliminadaExitosamente();
     } else {
         VistaRuta::mensajeDeError();

@@ -14,6 +14,7 @@ public:
     static int menuPrincipal(int &op);
     static int menuConfiguraciones(int &op);
     static int menuReportes(int &op);
+    static void mensajeDeError();
 };
 
 #endif //PROYECTO_PROGRAMADO1_VISTAPRINCIPAL_H

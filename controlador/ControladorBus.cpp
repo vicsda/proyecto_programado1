@@ -11,7 +11,7 @@ ControladorBus::ControladorBus(Lista<Bus*>* dbBus)
         : dbBus(dbBus) {}
 ControladorBus::~ControladorBus() {}
 
-void ControladorBus::menuBus() {
+void ControladorBus::menuBus(Lista<RutaViaje*>* dbRuta, Lista<Tiquete*>* dbTiquete) {
     int op = 0;
     while(VistaBus::menuDeBuses(op) != 3) {
         switch(op) {
@@ -19,7 +19,7 @@ void ControladorBus::menuBus() {
                 insertarBus();
                 break;
             case 2:
-                eliminarBus();
+                eliminarBus(dbRuta, dbTiquete);
                 break;
             default:
                 "INVALIDO"; // DE ESTO SE DEBE DE ENCARGAR EL MANEJO DE EXCEPCIONES Y/O VISTA
@@ -40,12 +40,21 @@ void ControladorBus::insertarBus() {   // BUSCAR FORMA DE HACER QUE NO PERMITA I
         VistaBus::mensajeDeError();
     }
 }
-void ControladorBus::eliminarBus() {
+void ControladorBus::eliminarBus(Lista<RutaViaje*>* dbRuta, Lista<Tiquete*>* dbTiquete) {
     string idNumPlaca;
     VistaBus::capturarDatosParaBorrarBus(idNumPlaca);
 
     //checkar que el bus realmente existe en la base de datos de buses
     if(dbBus->checkarSiElementoExisteSegunId(idNumPlaca)) {
+
+        //eliminar referencias del objeto, si las hay, en la base de datos de rutas
+        for(int i = 0; i < dbRuta->getCantDeElementos(); i++) {
+            RutaViaje* rutaPos = dbRuta->getElementoEnPosEspec(i);
+            rutaPos->eliminarBusSegunPlaca(idNumPlaca);
+        }
+
+        //eliminar tiquetes inscritos con ese numero de placa
+        dbTiquete->eliminarElementosSegunBusAsign(idNumPlaca);
 
         //eliminar objeto de la base de datos de buses
         dbBus->eliminarElementoSegunId(idNumPlaca);

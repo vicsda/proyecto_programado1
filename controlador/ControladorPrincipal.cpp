@@ -36,7 +36,7 @@ void ControladorPrincipal::menuPrincipal() {
                 menuReportes();
                 break;
             default:
-                cout << "INVALIDO";
+                VistaPrincipal::mensajeDeError();
                 break;
         }
     }
@@ -47,17 +47,17 @@ void ControladorPrincipal::menuConfiguraciones() {
     while(VistaPrincipal::menuConfiguraciones(op) != 4) {
         switch(op) {
             case 1:
-                controlDbBus->menuBus();
+                controlDbBus->menuBus(dbEmpresa->getDbRuta(), dbEmpresa->getDbTiquete());
                 break;
             case 2:
                 if (controlDbBus->cambiarCapacidadSegunRestriccion())
                     controlDbTiq->resetearTiquetes();
                 break;
             case 3:
-                controlDbRuta->menuRuta(dbEmpresa->getDbBus());
+                controlDbRuta->menuRuta(dbEmpresa->getDbBus(), dbEmpresa->getDbTiquete());
                 break;
             default:
-                cout << "INVALIDO";
+                VistaPrincipal::mensajeDeError();
                 break;
         }
     }
@@ -81,7 +81,7 @@ void ControladorPrincipal::menuReportes() {
                 controlDbTiq->mostrarTiquetes();
                 break;
             default:
-                cout << "INVALIDO";
+                VistaPrincipal::mensajeDeError();
                 break;
         }
     }

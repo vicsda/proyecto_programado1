@@ -40,3 +40,11 @@ int VistaPrincipal::menuReportes(int &op) {
     cin >> op;
     return op;
 }
+void VistaPrincipal::mensajeDeError() {
+    system("CLS");
+    cout << "\tBusCar Costa Rica S.A.\n";
+    cout << "MENU PRINCIPAL\n";
+    cout << "  -Error en el proceso-\n";
+    cout << "Presione ENTER para salir: ";
+    getch();
+}

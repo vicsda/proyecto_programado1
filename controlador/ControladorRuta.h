@@ -17,9 +17,9 @@ public:
     ControladorRuta(Lista<RutaViaje*>* dbRuta);
     ~ControladorRuta();
 
-    void menuRuta(Lista<Bus*>* dbBus);
+    void menuRuta(Lista<Bus*>* dbBus, Lista<Tiquete*>* dbTiquete);
     void insertarRuta(Lista<Bus*>* dbBus);
-    void eliminarRuta();
+    void eliminarRuta(Lista<Tiquete*>* dbTiquete);
     void mostrarRutas();
 };
 

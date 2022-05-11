@@ -4,15 +4,7 @@
 /*
                                         ----- COSAS POR HACER -----
 
-* MODELO:
-
-    -> Hacer que, cada vez que se elimine un bus, entonces se eliminen sus referencias en las rutas Y
-    ademas los tiquetes que tengan asociados ese bus (Esto podria implicar hacer cambios respecto a tiquete)
-
-    -> Hacer que, cada vez que se elimine una ruta, entonces se eliminen los tiquetes que tengan asociados
-    esa ruta (Esto podria implicar hacer cambios respecto a tiquete)
-
-* CONTROLADOR
+* CONTROLADOR / MODELO
 
     -> Separar la logica de los controladores (Utilizar la clase 'Empresa'?)
 
@@ -25,6 +17,10 @@
 * ARCHIVOS
 
     -> Agregar el manejo de archivos para guardar todos los elementos de la database (modelo)
+
+* DEBUG
+
+    -> Debuggear el proyecto. Buscar errores
 
 */
 

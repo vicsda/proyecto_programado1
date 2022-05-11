@@ -7,6 +7,7 @@
 
 #include "../interfaz/VistaBus.h"
 #include "../include/Bus.h"
+#include "../include/RutaViaje.h"
 #include "../include/Lista.h"
 
 class ControladorBus {
@@ -17,9 +18,9 @@ public:
     ControladorBus(Lista<Bus*>* dbBus);
     ~ControladorBus();
 
-    void menuBus();
+    void menuBus(Lista<RutaViaje*>* dbRuta, Lista<Tiquete*>* dbTiquete);
     void insertarBus();
-    void eliminarBus();
+    void eliminarBus(Lista<RutaViaje*>* dbRuta, Lista<Tiquete*>* dbTiquete);
     bool cambiarCapacidadSegunRestriccion();
     void mostrarBuses();
 };
