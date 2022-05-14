@@ -26,11 +26,14 @@ Lista<Tiquete*>* Empresa::getDbTiquete() {
     return dbTiquete;
 }
 
+
+// conexiones con bus
 Bus* Empresa::devolverBusSegunPlaca(string placa) {
     return dbBus->devolverElementoSegunId(placa);
 }
 
 
+//conexiones con ruta
 RutaViaje* Empresa::devolverRutaSegunCodigo(string codRuta) {
     return dbRuta->devolverElementoSegunId(codRuta);
 }
@@ -41,10 +44,11 @@ void Empresa::eliminarRutasConInstDeBus(string placa) {
     }
 }
 bool Empresa::checkarSiRutaExisteSegunCod(string codRuta) {
-    dbRuta->checkarSiElementoExisteSegunId(codRuta);
+    return dbRuta->checkarSiElementoExisteSegunId(codRuta);
 }
 
 
+//conexiones con tiquete
 void Empresa::eliminarTiquetesConInstDeBus(string placa) {
     dbTiquete->eliminarElementosSegunBusAsign(placa);
 }

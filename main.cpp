@@ -4,20 +4,6 @@
 /*
                                         ----- COSAS POR HACER -----
 
-* CONTROLADOR / MODELO
-
-    -> Separar la logica de los controladores (Utilizar la clase 'Empresa'?)
-
-    -> Mejorar la distribucion de las controladoras
-
-* EXCEPCIONES
-
-    -> Agregar las excepciones en la interfaz (con una clase encargada de esto)
-
-* ARCHIVOS
-
-    -> Agregar el manejo de archivos para guardar todos los elementos de la database (modelo)
-
 * DEBUG
 
     -> Debuggear el proyecto. Buscar errores
