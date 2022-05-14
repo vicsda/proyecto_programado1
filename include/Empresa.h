@@ -15,7 +15,9 @@
   Esta clase nace de nuestra necesidad por conectar todas las listas (sub db's) en un solo punto. Sirve como el puente entre
   las listas y las sub-controladoras.
 
-  Esta tambien posee ciertos metodos para manejar relaciones entre sub-controladoras que considerabamos importantes.
+  Esta tambien posee ciertos metodos para manejar relaciones entre las listas que considerabamos importantes.
+
+  De la destruccion de estas se encargan sus respectivas controladoras/sub-controladoras.
 
 */
 
