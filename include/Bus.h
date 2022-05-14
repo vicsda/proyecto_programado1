@@ -27,6 +27,7 @@ public:
 
     int getCapacidadMaxima();
     int getCantDeAsientos();
+    double getDisponibilidadDelBus();
     bool agregarAsiento(Asiento* inAsiento);
     bool eliminarUltimoAsiento();
     bool resetearAsientosSegunRestriccion(int porc);

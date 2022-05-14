@@ -35,6 +35,10 @@ int Bus::getCapacidadMaxima() {
 int Bus::getCantDeAsientos() {
     return asientosAsign->getCantDeElementos();
 }
+double Bus::getDisponibilidadDelBus() {
+    double ocupacion = (100.0 / asientosAsign->getTamVector()) * asientosAsign->getCantDeElementos();
+    return 100.0 - ocupacion;
+}
 bool Bus::agregarAsiento(Asiento* inAsiento) {
     return asientosAsign->agregarElemento(inAsiento);
 }

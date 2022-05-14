@@ -50,6 +50,23 @@ Bus* RutaViaje::getPrimerBusDisponible() {
     return nullptr;
 }
 
+double RutaViaje::getDisponibilidadDePasajeros() {
+    double sumProm = 0;
+    int cont = 0;
+    while(cont < busesAsign->getCantDeElementos()) {
+        Bus* busEnPos = busesAsign->getElementoEnPosEspec(cont);
+
+        if(busEnPos == nullptr)
+            break;
+        else
+            sumProm += busEnPos->getDisponibilidadDelBus();
+
+        cont++;
+    }
+
+    return sumProm / busesAsign->getCantDeElementos();
+}
+
 bool RutaViaje::eliminarBusSegunPlaca(string placa) {
     return busesAsign->eliminarElementoSegunId(placa);
 }
@@ -59,6 +76,6 @@ string RutaViaje::toString() {
     x << "* Codigo de Ruta: " << idCodRuta << '\n'
       << "* Nombre de la Ruta: " << nomRuta << '\n'
       << "* Nro. de Buses Asignados: " << busesAsign->getCantDeElementos() << '\n'
-      << "* Disponibilidad de Pasajeros: 666%"; // IMPLEMENTAR
+      << "* Disponibilidad de Pasajeros: " << getDisponibilidadDePasajeros() << "%";  // IMPLEMENTAR
     return x.str();
 }

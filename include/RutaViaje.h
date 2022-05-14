@@ -28,6 +28,7 @@ public:
 
     bool anadirBusEnRuta(Bus* bus);
     Bus* getPrimerBusDisponible();
+    double getDisponibilidadDePasajeros();
     bool eliminarBusSegunPlaca(string placa);
 
     string toString();
