@@ -19,7 +19,7 @@ public:
     static void mensajeDeError();
     static void escribirBusesEnPantalla(string data);
 
-
+    //relacionados al manejo de restricciones en buses
     static void capturarDatoDeRestriccion(int &op);
     static void mensajeDeAdvertenciaAnteCambio(char &op);
     static void mensajeDeCambioSatisfactorio();

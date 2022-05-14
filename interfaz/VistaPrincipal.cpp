@@ -5,7 +5,6 @@
 #include "VistaPrincipal.h"
 
 int VistaPrincipal::menuPrincipal(int &op) {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "MENU PRINCIPAL\n";
     cout << "  1. Configuracion de la flota\n";
@@ -14,10 +13,10 @@ int VistaPrincipal::menuPrincipal(int &op) {
     cout << "  4. Salir\n\n";
     cout << "Ingrese aqui: ";
     cin >> op;
+    cout << "\n\n\n\n\n\n";
     return op;
 }
 int VistaPrincipal::menuConfiguraciones(int &op) {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "MENU DE CONFIGURACIONES\n";
     cout << "  1. Tipos de Buses\n";
@@ -26,10 +25,10 @@ int VistaPrincipal::menuConfiguraciones(int &op) {
     cout << "  4. Salir\n\n";
     cout << "Ingrese aqui: ";
     cin >> op;
+    cout << "\n\n\n\n\n\n";
     return op;
 }
 int VistaPrincipal::menuReportes(int &op) {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "MENU DE REPORTES\n";
     cout << "  1. Mostrar los buses registrados\n";
@@ -38,13 +37,15 @@ int VistaPrincipal::menuReportes(int &op) {
     cout << "  4. Salir\n\n";
     cout << "Ingrese aqui: ";
     cin >> op;
+    cout << "\n\n\n\n\n\n";
     return op;
 }
 void VistaPrincipal::mensajeDeError() {
-    system("CLS");
+    cout << "\n\n\n\n\n";
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "MENU PRINCIPAL\n";
     cout << "  -Error en el proceso-\n";
     cout << "Presione ENTER para salir: ";
     getch();
+    cout << "\n\n\n\n\n\n";
 }

@@ -5,7 +5,6 @@
 #include "VistaRuta.h"
 
 int VistaRuta::menuDeRutas(int &op) {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "RUTAS DE VIAJE\n";
     cout << "  1. Agregar ruta\n";
@@ -13,10 +12,10 @@ int VistaRuta::menuDeRutas(int &op) {
     cout << "  3. Salir\n\n";
     cout << "Ingrese aqui: ";
     cin >> op;
+    cout << "\n\n\n\n\n\n";
     return op;
 }
 void VistaRuta::capturarDatosParaAgregarRuta(string &idCodRuta, string &nomRuta, int &numBuses) {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "AGREGAR RUTA\n";
     cout << "  * Digite el codigo de la ruta: ";
@@ -26,50 +25,53 @@ void VistaRuta::capturarDatosParaAgregarRuta(string &idCodRuta, string &nomRuta,
     getline(cin, nomRuta);
     cout << "  * Digite el numero de buses que desea agregar en su ruta: ";
     cin >> numBuses;
+    cout << "\n\n\n\n\n\n";
 }
 void VistaRuta::capturarPlacaDeBusParaRuta(string &idPlacaBus) {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "AGREGAR RUTA\n";
     cout << "  * Digite la placa de bus: ";
     cin >> idPlacaBus;
+    cout << "\n\n\n\n\n\n";
 }
 void VistaRuta::mensajeRutaAgregadaExitosamente() {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "AGREGAR RUTA\n";
     cout << "  -Ruta agregada exitosamente-\n";
     cout << "Presione ENTER para salir: ";
     getch();
+    cout << "\n\n\n\n\n\n";
 }
 void VistaRuta::capturarDatosParaEliminarRuta(string &idCodRuta) {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "ELIMINAR RUTA\n";
     cout << "  * Digite el ID de la ruta por eliminar: ";
     cin >> idCodRuta;
+    cout << "\n\n\n\n\n\n";
 }
 void VistaRuta::mensajeRutaEliminadaExitosamente() {
-    system("CLS");
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "ELIMINAR RUTA\n";
     cout << "  -Ruta eliminada exitosamente-\n";
     cout << "Presione ENTER para salir: ";
     getch();
+    cout << "\n\n\n\n\n\n";
 }
 void VistaRuta::mensajeDeError() {
-    system("CLS");
+    cout << "\n\n\n\n\n\n";
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "RUTAS DE VIAJE\n";
     cout << "  -Error en el proceso-\n";
     cout << "Presione ENTER para salir: ";
     getch();
+    cout << "\n\n\n\n\n\n";
 }
 void VistaRuta::escribirDisponibilidadDePasajerosPorRuta(string data) {
-    system("CLS");
+    cout << "\n\n\n\n\n\n";
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "DISPONIBILIDAD DE PASAJEROS POR RUTA DE VIAJE\n";
     cout << data;
     cout << "\n\nPresione ENTER para salir: ";
     getch();
+    cout << "\n\n\n\n\n\n";
 }
