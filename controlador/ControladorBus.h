@@ -6,9 +6,7 @@
 #define PROYECTO_1_EIF204_CONTROLADORBUS_H
 
 #include "../interfaz/VistaBus.h"
-#include "../include/Bus.h"
-#include "../include/RutaViaje.h"
-#include "../include/Lista.h"
+#include "../include/Empresa.h"
 
 class ControladorBus {
 private:
@@ -18,9 +16,9 @@ public:
     ControladorBus(Lista<Bus*>* dbBus);
     ~ControladorBus();
 
-    void menuBus(Lista<RutaViaje*>* dbRuta, Lista<Tiquete*>* dbTiquete);
+    void menuBus(Empresa* dbEmpresa);
     void insertarBus();
-    void eliminarBus(Lista<RutaViaje*>* dbRuta, Lista<Tiquete*>* dbTiquete);
+    void eliminarBus(Empresa* dbEmpresa);
     bool cambiarCapacidadSegunRestriccion();
     void mostrarBuses();
 };

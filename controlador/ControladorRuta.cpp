@@ -11,15 +11,15 @@ ControladorRuta::ControladorRuta(Lista<RutaViaje*>* dbRuta)
         : dbRuta(dbRuta) {}
 ControladorRuta::~ControladorRuta() {}
 
-void ControladorRuta::menuRuta(Lista<Bus*>* dbBus, Lista<Tiquete*>* dbTiquete) {
+void ControladorRuta::menuRuta(Empresa* dbEmpresa) {
     int op = 0;
     while(VistaRuta::menuDeRutas(op) != 3) {
         switch(op) {
             case 1:
-                insertarRuta(dbBus);
+                insertarRuta(dbEmpresa);
                 break;
             case 2:
-                eliminarRuta(dbTiquete);
+                eliminarRuta(dbEmpresa);
                 break;
             default:
                 cout << "INVALIDO";
@@ -27,7 +27,7 @@ void ControladorRuta::menuRuta(Lista<Bus*>* dbBus, Lista<Tiquete*>* dbTiquete) {
         }
     }
 }
-void ControladorRuta::insertarRuta(Lista<Bus*>* dbBus) {
+void ControladorRuta::insertarRuta(Empresa* dbEmpresa) {
     string idCodRuta;
     string nomRuta;
     string idNumPlaca;
@@ -42,13 +42,12 @@ void ControladorRuta::insertarRuta(Lista<Bus*>* dbBus) {
         while(numBuses) {
 
             VistaRuta::capturarPlacaDeBusParaRuta(idNumPlaca);
-            Bus* ptoBus = dbBus->devolverElementoSegunId(idNumPlaca);
-            if( !dbBus->checkarSiElementoExisteSegunId(idNumPlaca) || !nuevaRuta->anadirBusEnRuta(ptoBus) ) {
+            Bus* ptoBus = dbEmpresa->devolverBusSegunPlaca(idNumPlaca);
+            if(ptoBus == nullptr || !nuevaRuta->anadirBusEnRuta(ptoBus)) {
                 delete nuevaRuta;
                 VistaRuta::mensajeDeError();
                 return;
             }
-
             numBuses--;
         }
 
@@ -58,13 +57,13 @@ void ControladorRuta::insertarRuta(Lista<Bus*>* dbBus) {
         VistaRuta::mensajeDeError();
     }
 }
-void ControladorRuta::eliminarRuta(Lista<Tiquete*>* dbTiquete) {
+void ControladorRuta::eliminarRuta(Empresa* dbEmpresa) {
     string idCodRuta;
     VistaRuta::capturarDatosParaEliminarRuta(idCodRuta);
     if( dbRuta->eliminarElementoSegunId(idCodRuta) ) {
 
         //eliminar, si existen, las instancias en donde aparezca este cod de ruta en tiquetes
-        dbTiquete->eliminarElementosSegunCodRuta(idCodRuta);
+        dbEmpresa->eliminarTiquetesConInstDeRuta(idCodRuta);
 
         VistaRuta::mensajeRutaEliminadaExitosamente();
     } else {

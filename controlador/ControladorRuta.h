@@ -5,9 +5,8 @@
 #ifndef PROYECTO_1_EIF204_CONTROLADORRUTA_H
 #define PROYECTO_1_EIF204_CONTROLADORRUTA_H
 
-#include "../include/RutaViaje.h"
-#include "../include/Lista.h"
 #include "../interfaz/VistaRuta.h"
+#include "../include/Empresa.h"
 
 class ControladorRuta {
 private:
@@ -17,9 +16,9 @@ public:
     ControladorRuta(Lista<RutaViaje*>* dbRuta);
     ~ControladorRuta();
 
-    void menuRuta(Lista<Bus*>* dbBus, Lista<Tiquete*>* dbTiquete);
-    void insertarRuta(Lista<Bus*>* dbBus);
-    void eliminarRuta(Lista<Tiquete*>* dbTiquete);
+    void menuRuta(Empresa* dbEmpresa);
+    void insertarRuta(Empresa* dbEmpresa);
+    void eliminarRuta(Empresa* dbEmpresa);
     void mostrarRutas();
 };
 

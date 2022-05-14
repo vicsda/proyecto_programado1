@@ -13,7 +13,7 @@ ControladorTiquete::~ControladorTiquete() {
     delete dbTiquete;
 }
 
-void ControladorTiquete::insertarTiquete(Lista<RutaViaje*>* dbRuta) {
+void ControladorTiquete::insertarTiquete(Empresa* dbEmpresa) {
     string codRuta;
     string numCedula;
     int cantBoletos;
@@ -22,13 +22,13 @@ void ControladorTiquete::insertarTiquete(Lista<RutaViaje*>* dbRuta) {
     VistaTiquete::capturarDatosParaAgregarTiquete(codRuta, numCedula, cantBoletos);
 
     //algoritmo para compra de tiquetes
-    if(dbRuta->checkarSiElementoExisteSegunId(codRuta)) {
+    if(dbEmpresa->checkarSiRutaExisteSegunCod(codRuta)) {
         //inicio la insercion de los boletos, uno por uno
         int tempCantBoletos = cantBoletos;
         while(tempCantBoletos) {
 
             //consigo los objetos necesarios para la transaccion
-            RutaViaje* rutaAsign = dbRuta->devolverElementoSegunId(codRuta);
+            RutaViaje* rutaAsign = dbEmpresa->devolverRutaSegunCodigo(codRuta);
             Bus* busAsign = rutaAsign->getPrimerBusDisponible();
 
             //terminar proceso si busAsign es nullptr (no hay buses disponibles)

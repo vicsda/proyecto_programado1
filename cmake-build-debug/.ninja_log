@@ -30,3 +30,10 @@
 1168	1448	6742609947418246	proyecto_programado1.exe	4e1d3a9783c492a5
 7	788	6742610198768580	CMakeFiles/proyecto_programado1.dir/src/RutaViaje.cpp.obj	1a34788edb5e5397
 790	1116	6742610201904595	proyecto_programado1.exe	4e1d3a9783c492a5
+28	867	6742649753017214	CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj	92c6de2e46a73f21
+18	881	6742649753112337	CMakeFiles/proyecto_programado1.dir/controlador/ControladorRuta.cpp.obj	b17851b8644835e9
+23	884	6742649753112337	CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj	a7e0c71f9ed35f75
+37	892	6742649753112337	CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj	85cbb611b195aa00
+4	895	6742649753268745	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
+32	911	6742649753424990	CMakeFiles/proyecto_programado1.dir/src/Empresa.cpp.obj	e6044791f2c47433
+911	1147	6742649755787988	proyecto_programado1.exe	4e1d3a9783c492a5

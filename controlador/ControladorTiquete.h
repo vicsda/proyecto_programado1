@@ -4,10 +4,8 @@
 
 #ifndef PROYECTO_PROGRAMADO1_CONTROLADORTIQUETE_H
 #define PROYECTO_PROGRAMADO1_CONTROLADORTIQUETE_H
-#include "../include/Tiquete.h"
-#include "../include/RutaViaje.h"
-#include "../include/Lista.h"
 #include "../interfaz/VistaTiquete.h"
+#include "../include/Empresa.h"
 
 class ControladorTiquete {
 private:
@@ -16,7 +14,7 @@ public:
     ControladorTiquete();
     ControladorTiquete(Lista<Tiquete*>* dbTiquete);
     virtual ~ControladorTiquete();
-    void insertarTiquete(Lista<RutaViaje*>* dbRuta);
+    void insertarTiquete(Empresa* dbEmpresa);
     void mostrarTiquetes();
     void resetearTiquetes();
 };

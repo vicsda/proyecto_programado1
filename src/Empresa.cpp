@@ -25,3 +25,29 @@ Lista<RutaViaje*>* Empresa::getDbRuta() {
 Lista<Tiquete*>* Empresa::getDbTiquete() {
     return dbTiquete;
 }
+
+Bus* Empresa::devolverBusSegunPlaca(string placa) {
+    return dbBus->devolverElementoSegunId(placa);
+}
+
+
+RutaViaje* Empresa::devolverRutaSegunCodigo(string codRuta) {
+    return dbRuta->devolverElementoSegunId(codRuta);
+}
+void Empresa::eliminarRutasConInstDeBus(string placa) {
+    for(int i = 0; i < dbRuta->getCantDeElementos(); i++) {
+        RutaViaje* rutaPos = dbRuta->getElementoEnPosEspec(i);
+        rutaPos->eliminarBusSegunPlaca(placa);
+    }
+}
+bool Empresa::checkarSiRutaExisteSegunCod(string codRuta) {
+    dbRuta->checkarSiElementoExisteSegunId(codRuta);
+}
+
+
+void Empresa::eliminarTiquetesConInstDeBus(string placa) {
+    dbTiquete->eliminarElementosSegunBusAsign(placa);
+}
+void Empresa::eliminarTiquetesConInstDeRuta(string codRuta) {
+    dbTiquete->eliminarElementosSegunCodRuta(codRuta);
+}

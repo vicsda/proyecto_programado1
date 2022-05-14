@@ -47,14 +47,14 @@ void ControladorPrincipal::menuConfiguraciones() {
     while(VistaPrincipal::menuConfiguraciones(op) != 4) {
         switch(op) {
             case 1:
-                controlDbBus->menuBus(dbEmpresa->getDbRuta(), dbEmpresa->getDbTiquete());
+                controlDbBus->menuBus(dbEmpresa);
                 break;
             case 2:
                 if (controlDbBus->cambiarCapacidadSegunRestriccion())
                     controlDbTiq->resetearTiquetes();
                 break;
             case 3:
-                controlDbRuta->menuRuta(dbEmpresa->getDbBus(), dbEmpresa->getDbTiquete());
+                controlDbRuta->menuRuta(dbEmpresa);
                 break;
             default:
                 VistaPrincipal::mensajeDeError();
@@ -64,7 +64,7 @@ void ControladorPrincipal::menuConfiguraciones() {
 }
 
 void ControladorPrincipal::compraTiquetes() {
-    controlDbTiq->insertarTiquete(dbEmpresa->getDbRuta());
+    controlDbTiq->insertarTiquete(dbEmpresa);
 }
 
 void ControladorPrincipal::menuReportes() {

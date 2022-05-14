@@ -16,10 +16,17 @@
 #include "../interfaz/VistaRuta.h"
 #include "../interfaz/VistaTiquete.h"
 
-//PSEUDO-IMPLEMENTACION DEL MANEJO DE CONTROLADORAS:
-// Se hace una simulacion del rol de las controladoras en el sistema. No es fiel, pues algunas de estas poseen
-// logica del negocio en sus metodos, lo cual tenemos presente que no es adecuado. La separacion de la logica
-// y la interfaz grafica si es razonable
+/*
+                                    PSEUDO-IMPLEMENTACION DEL MANEJO DE CONTROLADORAS
+
+  Se hace una simulacion del rol de las controladoras en el sistema. No es fiel, pues algunas de estas poseen
+  logica del negocio en sus metodos, lo cual tenemos presente que no es adecuado. La separacion de la logica
+  y la interfaz grafica si es razonable.
+
+  Las relaciones entre controladoras hacen uso de metodos que implementamos en la clase Empresa, con el fin de
+  "ocultar" los procesos internos. No consideramos que sea una solucion optima.
+
+*/
 
 class ControladorPrincipal {
 private:
