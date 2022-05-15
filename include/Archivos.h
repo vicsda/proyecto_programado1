@@ -21,8 +21,10 @@ public:
     static void guardarDatosDeLista(tipo* n, string nombreLista){
         ofstream salida;
         salida.open(nombreLista, ios::out);
-        salida<<n->toString();
-        salida.close();
+        if(salida.is_open()) {
+            salida<<n->toString();
+            salida.close();
+        }
     }
 };
 
