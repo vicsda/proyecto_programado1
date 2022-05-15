@@ -9,7 +9,7 @@
 #include "Tiquete.h"
 
 template <class T>
-class Lista {
+class Lista : public Object {
 private:
     Nodo<T>* cabeza;
     int cant;

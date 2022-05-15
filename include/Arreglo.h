@@ -9,7 +9,7 @@
 #include "Asiento.h"
 
 template<class T>
-class Arreglo {
+class Arreglo : public Object {
 private:
     T* vec;
     int tam;

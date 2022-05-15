@@ -4,6 +4,8 @@
 /*
                                                     MAIN DEL SISTEMA
 
+                    Nota: Las clases y archivos mas "interesantes" poseen una breve descripcion en sus .h/.cpp
+
 */
 
 int main() {
