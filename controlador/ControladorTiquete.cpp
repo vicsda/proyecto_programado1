@@ -66,6 +66,7 @@ void ControladorTiquete::insertarTiquete(Empresa* dbEmpresa) {
             tempCantBoletos--;
         }
 
+        Archivos<Lista<Tiquete*>>::guardarDatosDeLista(dbTiquete, "listaTiquetes.txt");
         VistaTiquete::mensajeDeCompraRealizadaExitosamente();
     } else {
         VistaTiquete::mensajeDeError();

@@ -1,5 +1,5 @@
 # ninja log v5
-2	611	6743589022541077	build.ninja	25bbb5e341d35b0
+2	611	6743443648277560	build.ninja	25bbb5e341d35b0
 17	2550	6743438402814824	CMakeFiles/proyecto_programado1.dir/src/RutaViaje.cpp.obj	1a34788edb5e5397
 11	2975	6743438406235563	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
 41	1331	6737776454082417	CMakeFiles/proyecto_programado1.dir/src/Asiento.cpp.obj	d289d39b5cee5a80
@@ -23,3 +23,17 @@
 1428	2323	6743343644439313	CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionRango.cpp.obj	d4daadc71beba296
 57	877	6743432266570878	CMakeFiles/proyecto_programado1.dir/test/ListaTest.cpp.obj	4ecf217acbe7e458
 2545	3597	6743438413967293	CMakeFiles/proyecto_programado1.dir/test/RutaTest.cpp.obj	5ce4c7bb8b978bd9
+43	1863	6743459351529824	CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj	85cbb611b195aa00
+4	1869	6743459352550057	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
+28	603	6743459897413668	CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj	92c6de2e46a73f21
+16	614	6743459897563696	CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj	a7e0c71f9ed35f75
+4	616	6743459897733741	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
+34	655	6743459898103838	CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj	85cbb611b195aa00
+22	843	6743459900014306	CMakeFiles/proyecto_programado1.dir/controlador/ControladorRuta.cpp.obj	b17851b8644835e9
+843	1091	6743459902450605	proyecto_programado1.exe	257274ea18e906d2
+19	878	6743587588333893	CMakeFiles/proyecto_programado1.dir/controlador/ControladorRuta.cpp.obj	b17851b8644835e9
+31	901	6743587588673962	CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj	85cbb611b195aa00
+36	904	6743587588283861	CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj	92c6de2e46a73f21
+6	958	6743587589264080	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
+27	1007	6743587589754189	CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj	a7e0c71f9ed35f75
+1007	1330	6743587592784872	proyecto_programado1.exe	257274ea18e906d2

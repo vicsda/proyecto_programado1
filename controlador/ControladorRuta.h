@@ -6,6 +6,7 @@
 #define PROYECTO_1_EIF204_CONTROLADORRUTA_H
 
 #include "../interfaz/VistaRuta.h"
+#include "../include/Archivos.h"
 #include "../include/Empresa.h"
 
 class ControladorRuta {
