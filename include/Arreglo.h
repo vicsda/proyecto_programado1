@@ -14,7 +14,7 @@
   Esta es la implementacion generica de la estructura de datos tipo 'arreglo'. Se utiliza para salvar la mayoria de instancias cuyo
   limite de ingreso es sabido (y en donde la funcionalidad de 'Random Access' puede ser mas util).
 
-  Esta posee una variable tipo 'bool' llamada 'Composicion'. Esta se encarga de analizar si una instancia 'x' del contenedor es de agregacion
+  Esta posee una variable tipo 'bool' llamada 'Composicion'. Se encarga de "analizar" si una instancia 'x' del contenedor es de agregacion
   (no se encarga de la existencia de sus objetos) o composicion (se encarga de la vida de sus objetos).
 
 */
