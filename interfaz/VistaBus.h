@@ -6,7 +6,8 @@
 #define PROYECTO_1_EIF204_VISTABUS_H
 
 #include "../include/Utilidades.h"
-#include "Excepcion.h"
+#include "Excepcion/ExcepcionRango.h"
+#include "Excepcion/ExcepcionChar.h"
 #include <conio.h>
 
 class VistaBus {
@@ -20,7 +21,7 @@ public:
     static void escribirBusesEnPantalla(string data);
 
     //relacionados al manejo de restricciones en buses
-    static void capturarDatoDeRestriccion(int &op);
+    static bool capturarDatoDeRestriccion(int &op);
     static void mensajeDeAdvertenciaAnteCambio(char &op);
     static void mensajeDeCambioSatisfactorio();
 };

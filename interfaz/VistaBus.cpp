@@ -19,12 +19,12 @@ int VistaBus::menuDeBuses(int &op) {
                 return op;
             }
             else {
-                throw Excepciones();
+                throw Excepcion();
             }
         }
-        catch(Excepciones& e) {
+        catch(Excepcion& e) {
             cout << "\n\n\n\n\n\n";
-            cout << e.whatValor();
+            cout << e.what();
             getch();
             cin.clear();
             cin.ignore(256, '\n');
@@ -84,7 +84,7 @@ void VistaBus::escribirBusesEnPantalla(string data) {
 }
 
 
-void VistaBus::capturarDatoDeRestriccion(int &op) {
+bool VistaBus::capturarDatoDeRestriccion(int &op) {
     while(true) {
         try {
             cout << "\tBusCar Costa Rica S.A.\n";
@@ -92,17 +92,24 @@ void VistaBus::capturarDatoDeRestriccion(int &op) {
             cout << "  * Digite el nuevo porcentaje (%) de aforo deseado: ";
 
             if(cin >> op) {
-                Excepciones::excepcionRestricionPorcentaje(op);
                 cout << "\n\n\n\n\n\n";
-                return;
+                return ExcepcionRango::excepcionRestricion(op);
             }
             else {
-                throw Excepciones();
+                throw Excepcion();
             }
         }
-        catch(Excepciones& e) {
+        catch(ExcepcionRango& e) {
             cout << "\n\n\n\n\n\n";
-            cout << e.whatValor();
+            cout << e.what();
+            getch();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "\n\n\n\n\n\n";
+        }
+        catch(Excepcion& e) {
+            cout << "\n\n\n\n\n\n";
+            cout << e.what();
             getch();
             cin.clear();
             cin.ignore(256, '\n');
@@ -111,23 +118,19 @@ void VistaBus::capturarDatoDeRestriccion(int &op) {
     }
 }
 void VistaBus::mensajeDeAdvertenciaAnteCambio(char &op) {
-    while(true) {
-        try {
-            cout << "\tBusCar Costa Rica S.A.\n";
-            cout << "RESTRICCIONES SANITARIAS\n";
-            cout << "  - Nota: Este cambio eliminara la actual nomina de pasajeros ingresados. Desea proceder? (S/N) -\n\n";
-            cout << "Ingrese aqui: ";
-            cin >> op;
-            Excepciones::excepcionRestricionSN(op);
-        }
-        catch(Excepciones& e) {
-            cout << "\n\n\n\n\n\n";
-            cout << e.whatValor();
-            getch();
-            cin.clear();
-            cin.ignore(256, '\n');
-            cout << "\n\n\n\n\n\n";
-        }
+
+    cout << "\tBusCar Costa Rica S.A.\n";
+    cout << "RESTRICCIONES SANITARIAS\n";
+    cout << "  - Nota: Este cambio eliminara la actual nomina de pasajeros ingresados. Desea proceder? (S/N) -\n\n";
+    cout << "Ingrese aqui: ";
+    cin >> op;
+    try{
+        cout << "\n\n\n\n\n\n";
+        ExcepcionChar::excepcionRestricionSN(op);
+    }catch (ExcepcionChar& e){
+        cout<<e.what();
+        getch();
+        cout << "\n\n\n\n\n\n";
     }
 }
 void VistaBus::mensajeDeCambioSatisfactorio() {

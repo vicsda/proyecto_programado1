@@ -20,12 +20,12 @@ void VistaTiquete::capturarDatosParaAgregarTiquete(string &codRutaAsign, string 
                 return;
             }
             else {
-                throw Excepciones();
+                throw Excepcion();
             }
         }
-        catch(Excepciones& e) {
+        catch(Excepcion& e) {
             cout << "\n\n\n\n\n\n";
-            cout << e.whatValor();
+            cout << e.what();
             getch();
             cin.clear();
             cin.ignore(256, '\n');

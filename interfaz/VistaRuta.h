@@ -6,7 +6,7 @@
 #define PROYECTO_1_EIF204_VISTARUTA_H
 
 #include "../include/Utilidades.h"
-#include "Excepcion.h"
+#include "Excepcion/Excepcion.h"
 #include <conio.h>
 
 class VistaRuta {

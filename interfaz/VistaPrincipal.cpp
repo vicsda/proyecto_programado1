@@ -3,7 +3,6 @@
 //
 
 #include "VistaPrincipal.h"
-#include "Excepcion.h"
 
 int VistaPrincipal::menuPrincipal(int &op) {
     while(true) {
@@ -21,12 +20,12 @@ int VistaPrincipal::menuPrincipal(int &op) {
                 return op;
             }
             else {
-                throw Excepciones();
+                throw Excepcion();
             }
         }
-        catch(Excepciones& e) {
+        catch(Excepcion& e) {
             cout << "\n\n\n\n\n\n";
-            cout << e.whatValor();
+            cout << e.what();
             getch();
             cin.clear();
             cin.ignore(256, '\n');
@@ -50,12 +49,12 @@ int VistaPrincipal::menuConfiguraciones(int &op) {
                 return op;
             }
             else {
-                throw Excepciones();
+                throw Excepcion();
             }
         }
-        catch(Excepciones& e) {
+        catch(Excepcion& e) {
             cout << "\n\n\n\n\n\n";
-            cout << e.whatValor();
+            cout << e.what();
             getch();
             cin.clear();
             cin.ignore(256, '\n');
@@ -79,12 +78,12 @@ int VistaPrincipal::menuReportes(int &op) {
                 return op;
             }
             else {
-                throw Excepciones();
+                throw Excepcion();
             }
         }
-        catch(Excepciones& e) {
+        catch(Excepcion& e) {
             cout << "\n\n\n\n\n\n";
-            cout << e.whatValor();
+            cout << e.what();
             getch();
             cin.clear();
             cin.ignore(256, '\n');

@@ -6,7 +6,7 @@
 #define PROYECTO_PROGRAMADO1_VISTAPRINCIPAL_H
 
 #include "../include/Utilidades.h"
-#include <cstdlib>
+#include "Excepcion/Excepcion.h"
 #include <conio.h>
 
 class VistaPrincipal {
