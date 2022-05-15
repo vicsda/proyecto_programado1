@@ -64,7 +64,10 @@ double RutaViaje::getDisponibilidadDePasajeros() {
         cont++;
     }
 
-    return sumProm / busesAsign->getCantDeElementos();
+    if(busesAsign->getCantDeElementos() == 0)
+        return 0;
+    else
+        return sumProm / busesAsign->getCantDeElementos();
 }
 
 bool RutaViaje::eliminarBusSegunPlaca(string placa) {
