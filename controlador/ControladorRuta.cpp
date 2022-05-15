@@ -52,6 +52,7 @@ void ControladorRuta::insertarRuta(Empresa* dbEmpresa) {
         }
 
         dbRuta->agregarElemento(nuevaRuta);
+        Archivos<Lista<RutaViaje*>>::guardarDatosDeLista(dbRuta, "listaRutas.txt");
         VistaRuta::mensajeRutaAgregadaExitosamente();
     } else {
         VistaRuta::mensajeDeError();
@@ -64,6 +65,8 @@ void ControladorRuta::eliminarRuta(Empresa* dbEmpresa) {
 
         //eliminar, si existen, las instancias en donde aparezca este cod de ruta en tiquetes
         dbEmpresa->eliminarTiquetesConInstDeRuta(idCodRuta);
+
+        Archivos<Lista<RutaViaje*>>::guardarDatosDeLista(dbRuta, "listaRutas.txt");
 
         VistaRuta::mensajeRutaEliminadaExitosamente();
     } else {

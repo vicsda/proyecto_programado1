@@ -6,6 +6,7 @@
 #define PROYECTO_1_EIF204_CONTROLADORBUS_H
 
 #include "../interfaz/VistaBus.h"
+#include "../include/Archivos.h"
 #include "../include/Empresa.h"
 
 class ControladorBus {

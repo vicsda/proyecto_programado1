@@ -5,6 +5,7 @@
 #ifndef PROYECTO_PROGRAMADO1_CONTROLADORTIQUETE_H
 #define PROYECTO_PROGRAMADO1_CONTROLADORTIQUETE_H
 #include "../interfaz/VistaTiquete.h"
+#include "../include/Archivos.h"
 #include "../include/Empresa.h"
 
 class ControladorTiquete {

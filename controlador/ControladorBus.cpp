@@ -34,6 +34,7 @@ void ControladorBus::insertarBus() {   // BUSCAR FORMA DE HACER QUE NO PERMITA I
     Bus* nuevoBus = new Bus(idNumPlaca, modelo);
     if( DatosBus::isModeloValido(modelo) ) {
         dbBus->agregarElemento(nuevoBus);
+        Archivos<Lista<Bus*>>::guardarDatosDeLista(dbBus, "listaBuses.txt");
         VistaBus::mensajeBusAgregadoExitosamente();
     }
     else {
@@ -56,6 +57,7 @@ void ControladorBus::eliminarBus(Empresa* dbEmpresa) {
 
         //eliminar objeto de la base de datos de buses
         dbBus->eliminarElementoSegunId(idNumPlaca);
+        Archivos<Lista<Bus*>>::guardarDatosDeLista(dbBus, "listaBuses.txt");
 
         VistaBus::mensajeBusEliminadoExitosamente();
     } else {
