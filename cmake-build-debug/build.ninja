@@ -163,6 +163,12 @@ build CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionArchivo.cp
   OBJECT_DIR = CMakeFiles\proyecto_programado1.dir
   OBJECT_FILE_DIR = CMakeFiles\proyecto_programado1.dir\interfaz\Excepcion
 
+build CMakeFiles/proyecto_programado1.dir/test/ListaTest.cpp.obj: CXX_COMPILER__proyecto_programado1_Debug C$:/Users/David/CLionProjects/proyecto_programado1/test/ListaTest.cpp || cmake_object_order_depends_target_proyecto_programado1
+  DEP_FILE = CMakeFiles\proyecto_programado1.dir\test\ListaTest.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  OBJECT_DIR = CMakeFiles\proyecto_programado1.dir
+  OBJECT_FILE_DIR = CMakeFiles\proyecto_programado1.dir\test
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target proyecto_programado1
@@ -171,7 +177,7 @@ build CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionArchivo.cp
 #############################################
 # Link the executable proyecto_programado1.exe
 
-build proyecto_programado1.exe: CXX_EXECUTABLE_LINKER__proyecto_programado1_Debug CMakeFiles/proyecto_programado1.dir/main.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Asiento.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Bus.cpp.obj CMakeFiles/proyecto_programado1.dir/src/DatosBus.cpp.obj CMakeFiles/proyecto_programado1.dir/src/RutaViaje.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Tiquete.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaBus.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaRuta.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorRuta.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaTiquete.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Empresa.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaPrincipal.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/Excepcion.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionRango.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionChar.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionArchivo.cpp.obj
+build proyecto_programado1.exe: CXX_EXECUTABLE_LINKER__proyecto_programado1_Debug CMakeFiles/proyecto_programado1.dir/main.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Asiento.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Bus.cpp.obj CMakeFiles/proyecto_programado1.dir/src/DatosBus.cpp.obj CMakeFiles/proyecto_programado1.dir/src/RutaViaje.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Tiquete.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaBus.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaRuta.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorRuta.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaTiquete.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj CMakeFiles/proyecto_programado1.dir/src/Empresa.cpp.obj CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/VistaPrincipal.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/Excepcion.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionRango.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionChar.cpp.obj CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionArchivo.cpp.obj CMakeFiles/proyecto_programado1.dir/test/ListaTest.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\proyecto_programado1.dir
