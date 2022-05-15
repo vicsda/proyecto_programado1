@@ -22,7 +22,7 @@ void ControladorBus::menuBus(Empresa* dbEmpresa) {
                 eliminarBus(dbEmpresa);
                 break;
             default:
-                "INVALIDO"; // DE ESTO SE DEBE DE ENCARGAR EL MANEJO DE EXCEPCIONES Y/O VISTA
+                VistaBus::mensajeDeError();
                 break;
         }
     }
@@ -32,7 +32,8 @@ void ControladorBus::insertarBus() {   // BUSCAR FORMA DE HACER QUE NO PERMITA I
     string modelo;
     VistaBus::capturarDatosParaAgregarBus(idNumPlaca, modelo);
     Bus* nuevoBus = new Bus(idNumPlaca, modelo);
-    if( dbBus->agregarElemento(nuevoBus) and DatosBus::isModeloValido(modelo) ) {
+    if( DatosBus::isModeloValido(modelo) ) {
+        dbBus->agregarElemento(nuevoBus);
         VistaBus::mensajeBusAgregadoExitosamente();
     }
     else {
@@ -70,7 +71,7 @@ bool ControladorBus::cambiarCapacidadSegunRestriccion() {
     VistaBus::mensajeDeAdvertenciaAnteCambio(op);
 
     //si el usuario accedio, entonces proceder
-    if(op == 'S') {
+    if(op == 'S' || op == 's') {
 
         //reseteo de los asientos (con nuevo valor de tamano)
         for(int i = 0; i < dbBus->getCantDeElementos(); i++) {
@@ -80,6 +81,8 @@ bool ControladorBus::cambiarCapacidadSegunRestriccion() {
 
         VistaBus::mensajeDeCambioSatisfactorio();
         return true;
+    } else {
+        VistaBus::mensajeDeError();
     }
 
     return false;

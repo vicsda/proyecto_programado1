@@ -6,7 +6,7 @@
 #define PROYECTO_1_EIF204_VISTABUS_H
 
 #include "../include/Utilidades.h"
-#include <cstdlib>
+#include "Excepcion.h"
 #include <conio.h>
 
 class VistaBus {

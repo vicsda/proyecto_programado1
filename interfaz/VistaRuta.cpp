@@ -5,27 +5,62 @@
 #include "VistaRuta.h"
 
 int VistaRuta::menuDeRutas(int &op) {
-    cout << "\tBusCar Costa Rica S.A.\n";
-    cout << "RUTAS DE VIAJE\n";
-    cout << "  1. Agregar ruta\n";
-    cout << "  2. Eliminar ruta\n";
-    cout << "  3. Salir\n\n";
-    cout << "Ingrese aqui: ";
-    cin >> op;
-    cout << "\n\n\n\n\n\n";
-    return op;
+    while(true) {
+        try {
+            cout << "\tBusCar Costa Rica S.A.\n";
+            cout << "RUTAS DE VIAJE\n";
+            cout << "  1. Agregar ruta\n";
+            cout << "  2. Eliminar ruta\n";
+            cout << "  3. Salir\n\n";
+            cout << "Ingrese aqui: ";
+
+            if(cin >> op) {
+                cout << "\n\n\n\n\n\n";
+                return op;
+            }
+            else {
+                throw Excepciones();
+            }
+        }
+        catch(Excepciones& e) {
+            cout << "\n\n\n\n\n\n";
+            cout << e.whatValor();
+            getch();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "\n\n\n\n\n\n";
+        }
+    }
 }
 void VistaRuta::capturarDatosParaAgregarRuta(string &idCodRuta, string &nomRuta, int &numBuses) {
-    cout << "\tBusCar Costa Rica S.A.\n";
-    cout << "AGREGAR RUTA\n";
-    cout << "  * Digite el codigo de la ruta: ";
-    cin >> idCodRuta;
-    cin.ignore();
-    cout << "  * Digite el nombre de la ruta: ";
-    getline(cin, nomRuta);
-    cout << "  * Digite el numero de buses que desea agregar en su ruta: ";
-    cin >> numBuses;
-    cout << "\n\n\n\n\n\n";
+    while(true) {
+        try {
+            cout << "\tBusCar Costa Rica S.A.\n";
+            cout << "AGREGAR RUTA\n";
+            cout << "  * Digite el codigo de la ruta: ";
+            cin >> idCodRuta;
+            cin.ignore();
+            cout << "  * Digite el nombre de la ruta: ";
+            getline(cin, nomRuta);
+            cout << "  * Digite el numero de buses que desea agregar en su ruta: ";
+
+            if(cin >> numBuses) {
+                cout << "\n\n\n\n\n\n";
+                return;
+            }
+            else {
+                throw Excepciones();
+            }
+        }
+        catch(Excepciones& e) {
+            cout << "\n\n\n\n\n\n";
+            cout << e.whatValor();
+            getch();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "\n\n\n\n\n\n";
+        }
+    }
 }
 void VistaRuta::capturarPlacaDeBusParaRuta(string &idPlacaBus) {
     cout << "\tBusCar Costa Rica S.A.\n";
@@ -61,7 +96,7 @@ void VistaRuta::mensajeDeError() {
     cout << "\n\n\n\n\n\n";
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "RUTAS DE VIAJE\n";
-    cout << "  -Error en el proceso-\n";
+    cout << "  -Error en el proceso. Ingreso discorde-\n";
     cout << "Presione ENTER para salir: ";
     getch();
     cout << "\n\n\n\n\n\n";

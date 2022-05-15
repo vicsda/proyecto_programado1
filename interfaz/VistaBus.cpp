@@ -5,15 +5,32 @@
 #include "VistaBus.h"
 
 int VistaBus::menuDeBuses(int &op) {
-    cout << "\tBusCar Costa Rica S.A.\n";
-    cout << "TIPOS DE BUSES\n";
-    cout << "  1. Agregar Bus\n";
-    cout << "  2. Eliminar Bus\n";
-    cout << "  3. Salir\n\n";
-    cout << "Ingrese aqui: ";
-    cin >> op;
-    cout << "\n\n\n\n\n\n";
-    return op;
+    while(true) {
+        try {
+            cout << "\tBusCar Costa Rica S.A.\n";
+            cout << "TIPOS DE BUSES\n";
+            cout << "  1. Agregar Bus\n";
+            cout << "  2. Eliminar Bus\n";
+            cout << "  3. Salir\n\n";
+            cout << "Ingrese aqui: ";
+
+            if(cin >> op) {
+                cout << "\n\n\n\n\n\n";
+                return op;
+            }
+            else {
+                throw Excepciones();
+            }
+        }
+        catch(Excepciones& e) {
+            cout << "\n\n\n\n\n\n";
+            cout << e.whatValor();
+            getch();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "\n\n\n\n\n\n";
+        }
+    }
 }
 void VistaBus::capturarDatosParaAgregarBus(string &placaBus, string &modelo) {
     cout << "\tBusCar Costa Rica S.A.\n";
@@ -51,7 +68,7 @@ void VistaBus::mensajeDeError() {
     cout << "\n\n\n\n\n\n";
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "TIPOS DE BUSES\n";
-    cout << "  -Error en el proceso-\n";
+    cout << "  -Error en el proceso. Ingreso discorde-\n";
     cout << "Presione ENTER para salir: ";
     getch();
     cout << "\n\n\n\n\n\n";
@@ -68,19 +85,50 @@ void VistaBus::escribirBusesEnPantalla(string data) {
 
 
 void VistaBus::capturarDatoDeRestriccion(int &op) {
-    cout << "\tBusCar Costa Rica S.A.\n";
-    cout << "RESTRICCIONES SANITARIAS\n";
-    cout << "  * Digite el nuevo porcentaje (%) de aforo deseado: ";
-    cin >> op;
-    cout << "\n\n\n\n\n\n";
+    while(true) {
+        try {
+            cout << "\tBusCar Costa Rica S.A.\n";
+            cout << "RESTRICCIONES SANITARIAS\n";
+            cout << "  * Digite el nuevo porcentaje (%) de aforo deseado: ";
+
+            if(cin >> op) {
+                Excepciones::excepcionRestricionPorcentaje(op);
+                cout << "\n\n\n\n\n\n";
+                return;
+            }
+            else {
+                throw Excepciones();
+            }
+        }
+        catch(Excepciones& e) {
+            cout << "\n\n\n\n\n\n";
+            cout << e.whatValor();
+            getch();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "\n\n\n\n\n\n";
+        }
+    }
 }
 void VistaBus::mensajeDeAdvertenciaAnteCambio(char &op) {
-    cout << "\tBusCar Costa Rica S.A.\n";
-    cout << "RESTRICCIONES SANITARIAS\n";
-    cout << "  - Nota: Este cambio eliminara la actual nomina de pasajeros ingresados. Desea proceder? (S/N) -\n\n";
-    cout << "Ingrese aqui: ";
-    cin >> op;
-    cout << "\n\n\n\n\n\n";
+    while(true) {
+        try {
+            cout << "\tBusCar Costa Rica S.A.\n";
+            cout << "RESTRICCIONES SANITARIAS\n";
+            cout << "  - Nota: Este cambio eliminara la actual nomina de pasajeros ingresados. Desea proceder? (S/N) -\n\n";
+            cout << "Ingrese aqui: ";
+            cin >> op;
+            Excepciones::excepcionRestricionSN(op);
+        }
+        catch(Excepciones& e) {
+            cout << "\n\n\n\n\n\n";
+            cout << e.whatValor();
+            getch();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "\n\n\n\n\n\n";
+        }
+    }
 }
 void VistaBus::mensajeDeCambioSatisfactorio() {
     cout << "\tBusCar Costa Rica S.A.\n";

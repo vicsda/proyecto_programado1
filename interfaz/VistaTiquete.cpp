@@ -5,15 +5,33 @@
 #include "VistaTiquete.h"
 
 void VistaTiquete::capturarDatosParaAgregarTiquete(string &codRutaAsign, string &cedulaDeComprador, int &cantidadTiquetes) {
-    cout << "\tBusCar Costa Rica S.A.\n";
-    cout << "RESERVAR TIQUETE\n";
-    cout << "  * Digite el codigo de la ruta deseada: ";
-    cin >> codRutaAsign;
-    cout << "  * Digite su cedula: ";
-    cin >> cedulaDeComprador;
-    cout << "  * Digite la cantidad de tiquetes que desea comprar: ";
-    cin >> cantidadTiquetes;
-    cout << "\n\n\n\n\n\n";
+    while(true) {
+        try {
+            cout << "\tBusCar Costa Rica S.A.\n";
+            cout << "RESERVAR TIQUETE\n";
+            cout << "  * Digite el codigo de la ruta deseada: ";
+            cin >> codRutaAsign;
+            cout << "  * Digite su cedula: ";
+            cin >> cedulaDeComprador;
+            cout << "  * Digite la cantidad de tiquetes que desea comprar: ";
+
+            if(cin >> cantidadTiquetes) {
+                cout << "\n\n\n\n\n\n";
+                return;
+            }
+            else {
+                throw Excepciones();
+            }
+        }
+        catch(Excepciones& e) {
+            cout << "\n\n\n\n\n\n";
+            cout << e.whatValor();
+            getch();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "\n\n\n\n\n\n";
+        }
+    }
 }
 void VistaTiquete::mensajeDeCompraRealizadaExitosamente() {
     cout << "\tBusCar Costa Rica S.A.\n";
@@ -27,7 +45,7 @@ void VistaTiquete::mensajeDeError() {
     cout << "\n\n\n\n\n\n";
     cout << "\tBusCar Costa Rica S.A.\n";
     cout << "RESERVAR TIQUETE\n";
-    cout << "  -Error en el proceso-\n";
+    cout << "  -Error en el proceso. Ingreso discorde-\n";
     cout << "Presione ENTER para salir: ";
     getch();
     cout << "\n\n\n\n\n\n";

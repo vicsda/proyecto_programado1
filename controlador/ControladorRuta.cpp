@@ -22,7 +22,7 @@ void ControladorRuta::menuRuta(Empresa* dbEmpresa) {
                 eliminarRuta(dbEmpresa);
                 break;
             default:
-                cout << "INVALIDO";
+                VistaRuta::mensajeDeError();
                 break;
         }
     }

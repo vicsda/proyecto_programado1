@@ -5,7 +5,7 @@
 #ifndef PROYECTO_PROGRAMADO1_VISTATIQUETE_H
 #define PROYECTO_PROGRAMADO1_VISTATIQUETE_H
 #include "../include/Utilidades.h"
-#include <cstdlib>
+#include "Excepcion.h"
 #include <conio.h>
 
 class VistaTiquete {
