@@ -10,7 +10,7 @@
 /*
                                          PSEUDO-IMPLEMENTACION DE UNIT TESTING (CLASE 'Bus')
 
-  Se hace una pseudo-simulacion del unit-testing comun en algunos de los metodos de la clase 'Bus'. Esto se hace con un fin
+  Se hace una pseudo-simulacion del unit-testing comun en algunos de los metodos de la clase 'Bus'. Se hace con un fin
   didactico.
 
 */

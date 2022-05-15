@@ -43,3 +43,17 @@
 1265	1995	6743592422801171	CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionRango.cpp.obj	d4daadc71beba296
 1190	2005	6743592422901182	CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionArchivo.cpp.obj	4968c900695b3fc
 2005	2214	6743592424901634	proyecto_programado1.exe	257274ea18e906d2
+6	448	6743595118150241	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
+27	453	6743595118230247	CMakeFiles/proyecto_programado1.dir/test/RutaTest.cpp.obj	5ce4c7bb8b978bd9
+454	648	6743595120120666	proyecto_programado1.exe	257274ea18e906d2
+35	909	6743597426945278	CMakeFiles/proyecto_programado1.dir/src/DatosBus.cpp.obj	3048f88b6a88130c
+55	915	6743597427035323	CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj	85cbb611b195aa00
+45	921	6743597427065343	CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj	a7e0c71f9ed35f75
+59	922	6743597427145331	CMakeFiles/proyecto_programado1.dir/src/Empresa.cpp.obj	e6044791f2c47433
+30	971	6743597427625447	CMakeFiles/proyecto_programado1.dir/src/Bus.cpp.obj	98c56415017376ae
+50	1011	6743597428035526	CMakeFiles/proyecto_programado1.dir/controlador/ControladorRuta.cpp.obj	b17851b8644835e9
+40	1026	6743597428295596	CMakeFiles/proyecto_programado1.dir/src/RutaViaje.cpp.obj	1a34788edb5e5397
+5	1153	6743597429625872	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
+916	1497	6743597433076674	CMakeFiles/proyecto_programado1.dir/test/RutaTest.cpp.obj	5ce4c7bb8b978bd9
+910	1501	6743597433096677	CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj	92c6de2e46a73f21
+1501	1739	6743597435442108	proyecto_programado1.exe	257274ea18e906d2

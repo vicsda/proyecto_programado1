@@ -1,10 +1,9 @@
-#include <iostream>
 #include "controlador/ControladorPrincipal.h"
 
 /*
                                                     MAIN DEL SISTEMA
 
-                    Nota: Las clases y archivos mas "interesantes" poseen una breve descripcion en sus .h/.cpp
+                    Nota I: Las clases y archivos mas "interesantes" poseen una breve descripcion en sus .h/.cpp
 
 */
 

@@ -8,6 +8,17 @@
 #include "Nodo.h"
 #include "Tiquete.h"
 
+/*
+                                                    CLASE GENERICA - 'Lista'
+
+  Esta es la implementacion generica de la estructura de datos tipo 'lista enlazada'. Se utiliza para salvar la mayoria de instancias cuyo
+  limite de ingreso no es sabido (o simplemente "no existe").
+
+  Esta posee una variable tipo 'bool' llamada 'Composicion'. Esta se encarga de analizar si una instancia 'x' de la lista es de agregacion
+  (no se encarga de la existencia de sus objetos) o composicion (se encarga de la vida de sus objetos).
+
+*/
+
 template <class T>
 class Lista : public Object {
 private:
