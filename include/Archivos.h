@@ -7,6 +7,14 @@
 #include "Utilidades.h"
 #include "Lista.h"
 
+/*
+                                                    MANEJO DE ARCHIVOS
+
+    Clase encargada de realizar el guardado de informacion en archivos de texto. Solo implementamos el guardado de la informacion de texto,
+    no recuperacion.
+
+*/
+
 template <class tipo>
 class Archivos {
 public:

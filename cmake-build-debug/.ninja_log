@@ -29,3 +29,17 @@
 41	1575	6743589614996582	CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj	92c6de2e46a73f21
 31	1658	6743589615936780	CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj	a7e0c71f9ed35f75
 1658	2173	6743589621038047	proyecto_programado1.exe	257274ea18e906d2
+57	1162	6743592414319270	CMakeFiles/proyecto_programado1.dir/controlador/ControladorTiquete.cpp.obj	92c6de2e46a73f21
+29	1189	6743592414359269	CMakeFiles/proyecto_programado1.dir/controlador/ControladorBus.cpp.obj	a7e0c71f9ed35f75
+40	1195	6743592414309262	CMakeFiles/proyecto_programado1.dir/interfaz/VistaRuta.cpp.obj	4096930098acfab9
+45	1240	6743592414709348	CMakeFiles/proyecto_programado1.dir/interfaz/VistaTiquete.cpp.obj	1c486d41486545dd
+35	1264	6743592414649345	CMakeFiles/proyecto_programado1.dir/controlador/ControladorRuta.cpp.obj	b17851b8644835e9
+52	1277	6743592414369270	CMakeFiles/proyecto_programado1.dir/interfaz/VistaPrincipal.cpp.obj	2d63a95a57a32418
+4	1278	6743592414379274	CMakeFiles/proyecto_programado1.dir/main.cpp.obj	52de0c11b619290b
+1241	1870	6743592421410857	CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/Excepcion.cpp.obj	6c014d975e99ed49
+23	1886	6743592421640913	CMakeFiles/proyecto_programado1.dir/interfaz/VistaBus.cpp.obj	d5d1b26ff8d4185f
+1195	1910	6743592421900969	CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionChar.cpp.obj	57184aec1238957
+1163	1972	6743592422561117	CMakeFiles/proyecto_programado1.dir/controlador/ControladorPrincipal.cpp.obj	85cbb611b195aa00
+1265	1995	6743592422801171	CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionRango.cpp.obj	d4daadc71beba296
+1190	2005	6743592422901182	CMakeFiles/proyecto_programado1.dir/interfaz/Excepcion/ExcepcionArchivo.cpp.obj	4968c900695b3fc
+2005	2214	6743592424901634	proyecto_programado1.exe	257274ea18e906d2

@@ -6,6 +6,13 @@
 #define PROYECTO_PROGRAMADO1_EXCEPCION_H
 #include "../../include/Utilidades.h"
 
+/*
+                                                    MANEJO DE EXCEPCIONES
+
+    Manejo basico de las excepciones. Esta representa la clase base Excepcion, y de esta heredan otros tipos de errores especificos
+
+*/
+
 class Excepcion: public exception{
 public:
     //mensajes
