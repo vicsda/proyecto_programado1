@@ -12,7 +12,7 @@
 */
 
 /*
-                                                    MAIN DEL SISTEMA
+                                                      MAIN DEL SISTEMA
 
                     Nota I: Las clases y archivos mas "interesantes" poseen una breve descripcion en sus .h/.cpp
 
