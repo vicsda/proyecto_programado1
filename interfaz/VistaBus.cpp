@@ -37,7 +37,7 @@ void VistaBus::capturarDatosParaAgregarBus(string &placaBus, string &modelo) {
     cout << "AGREGAR BUS\n";
     cout << "  * Digite el numero de placa: ";
     cin >> placaBus;
-    cout << "  * Digite el modelo: ";
+    cout << "  * Digite el modelo (Comenzando en mayuscula, resto en minuscula): ";
     cin >> modelo;
     cout << "\n\n\n\n\n\n";
 }
