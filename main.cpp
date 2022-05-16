@@ -1,6 +1,17 @@
 #include "controlador/ControladorPrincipal.h"
 
 /*
+                                            EIF204 - PROYECTO PROGRAMADO #1
+
+      Integrantes:
+
+    - Victor Coto Solano (3-0544-0064)
+    - Francisco Esteban Arias Sanabria (1-1746-0586)
+    - Daniela Madrigal Morales (1-1753-0126)
+
+*/
+
+/*
                                                     MAIN DEL SISTEMA
 
                     Nota I: Las clases y archivos mas "interesantes" poseen una breve descripcion en sus .h/.cpp
